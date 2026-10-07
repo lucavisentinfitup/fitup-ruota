@@ -537,7 +537,14 @@ function syncClock(cb) {
     };
     one();
 }
+var PAIRED_IDLE_MS = 60000;
+var currentPanel = "idle";
+var freshPair = false;
+var pairedShownAt = 0;
 function panel(name) {
+    if (name === "paired" && currentPanel !== "paired")
+        pairedShownAt = Date.now();
+    currentPanel = name;
     show("panel-idle", name === "idle");
     show("panel-paired", name === "paired");
     show("panel-spin", name === "spin");
@@ -555,6 +562,7 @@ function handle(rec) {
         return window.location.reload();
     if (ev.type === "paired") {
         session = { id: ev.sessionId, playerName: ev.playerName, lastActive: Date.now() };
+        freshPair = true;
         xhr("POST", api + "/ack", { sessionId: ev.sessionId }, function () { });
         $("player").innerHTML = playerLabel(ev.playerName);
         if (W.phase !== "result" && W.phase !== "accel" && W.phase !== "cruise" && W.phase !== "decel")
@@ -603,6 +611,7 @@ function withIndex(ev) {
 }
 function startSpin(ev, waitingConfig) {
     W.waiting = !!waitingConfig;
+    freshPair = false;
     W.spin = ev;
     W.decelLocal = ev.decelAt - clockOffset;
     W.phase = "accel";
@@ -654,6 +663,7 @@ function poll() {
                 lastSeq = d.seq;
                 if (d.session) {
                     session = { id: d.session.id, playerName: d.session.playerName, lastActive: Date.now() };
+                    freshPair = true;
                     xhr("POST", api + "/ack", { sessionId: d.session.id }, function () { });
                     $("player").innerHTML = playerLabel(d.session.playerName);
                     if (W.phase === "idle")
@@ -800,7 +810,7 @@ function frame() {
         case "result":
             if (Date.now() > W.resultUntil) {
                 W.phase = "idle";
-                panel(session ? "paired" : "idle");
+                panel(session && freshPair ? "paired" : "idle");
             }
             break;
     }
@@ -808,6 +818,8 @@ function frame() {
         session = null;
         panel("idle");
     }
+    if (currentPanel === "paired" && W.phase === "idle" && Date.now() - pairedShownAt > PAIRED_IDLE_MS)
+        panel("idle");
     stepPointer(W.pointer, W.theta, W.v, 1, count, dt);
     var k = pegIndex(W.theta, count);
     if (k !== W.lastK) {

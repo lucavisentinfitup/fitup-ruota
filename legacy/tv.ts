@@ -150,7 +150,15 @@ function syncClock(cb?: () => void) {
 }
 
 // ------------------------------------------------------------------ pannelli laterali
+/** Dopo il collegamento, se il giocatore non gira entro questo tempo, torna il QR per i prossimi. */
+var PAIRED_IDLE_MS = 60000;
+var currentPanel = "idle";
+/** giocatore collegato che non ha ancora girato (da mostrare dopo il risultato di chi c'era prima) */
+var freshPair = false;
+var pairedShownAt = 0;
 function panel(name: "idle" | "paired" | "spin" | "result") {
+  if (name === "paired" && currentPanel !== "paired") pairedShownAt = Date.now();
+  currentPanel = name;
   show("panel-idle", name === "idle");
   show("panel-paired", name === "paired");
   show("panel-spin", name === "spin");
@@ -168,6 +176,7 @@ function handle(rec: EventRec) {
   if (ev.type === "reload") return window.location.reload();
   if (ev.type === "paired") {
     session = { id: ev.sessionId, playerName: ev.playerName, lastActive: Date.now() };
+    freshPair = true;
     xhr("POST", api + "/ack", { sessionId: ev.sessionId }, function () {});
     $("player").innerHTML = playerLabel(ev.playerName);
     if (W.phase !== "result" && W.phase !== "accel" && W.phase !== "cruise" && W.phase !== "decel") panel("paired");
@@ -210,6 +219,7 @@ function withIndex(ev: SpinEvent): SpinEvent {
 
 function startSpin(ev: SpinEvent, waitingConfig?: boolean) {
   W.waiting = !!waitingConfig;
+  freshPair = false;
   W.spin = ev;
   W.decelLocal = ev.decelAt - clockOffset; // in Date.now()
   W.phase = "accel";
@@ -266,6 +276,7 @@ function poll() {
         lastSeq = d.seq;
         if (d.session) {
           session = { id: d.session.id, playerName: d.session.playerName, lastActive: Date.now() };
+          freshPair = true;
           xhr("POST", api + "/ack", { sessionId: d.session.id }, function () {});
           $("player").innerHTML = playerLabel(d.session.playerName);
           if (W.phase === "idle") panel("paired");
@@ -407,9 +418,12 @@ function frame() {
       break;
     }
     case "result":
+      // finito il risultato lo schermo torna libero (QR e codice) per il prossimo cliente, a meno che
+      // qualcuno si sia già collegato nel frattempo; la sessione resta, così se lo stesso giocatore
+      // rigira la TV lo mostra comunque
       if (Date.now() > W.resultUntil) {
         W.phase = "idle";
-        panel(session ? "paired" : "idle");
+        panel(session && freshPair ? "paired" : "idle");
       }
       break;
   }
@@ -419,6 +433,8 @@ function frame() {
     session = null;
     panel("idle");
   }
+  // collegato ma non ha girato: non teniamo nascosto il QR a chi arriva dopo
+  if (currentPanel === "paired" && W.phase === "idle" && Date.now() - pairedShownAt > PAIRED_IDLE_MS) panel("idle");
 
   stepPointer(W.pointer, W.theta, W.v, 1, count, dt);
   var k = pegIndex(W.theta, count);
