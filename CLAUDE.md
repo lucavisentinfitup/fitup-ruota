@@ -5,6 +5,7 @@ Leggere prima di lavorare. Il brand si scrive sempre **FitUP** (mai "Fitup" o "f
 ## Cos'è
 Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei club girano una ruota da telefono (premi o penitenze), il backend (solo account Google @fitup.it) gestisce ruote e report vincite, e le TV dei club mostrano la ruota in 16:9 sincronizzata col telefono.
 
+- **Codice:** https://github.com/lucavisentinfitup/fitup-ruota (privato). Ogni push su `main` ripubblica in automatico su Vercel.
 - **Produzione:** https://fitup-ruota.vercel.app (Vercel, account `lucavisentin-3821`, team `luca-visentins-projects`, progetto `fitup-ruota`, piano Hobby → da passare a Pro per uso commerciale)
 - **Database:** Neon Postgres (integrazione Vercel `fitup-ruota-db`), immagini su Vercel Blob (`fitup-ruota-immagini`)
 - Stack: Next.js 16, React 19, Auth.js v5 (Google), nessun framework CSS. Design system di fitup.it: nero, verde `#94C424`, Oswald (titoli maiuscoli) + Poppins.
@@ -42,7 +43,8 @@ npm run build                   # build di produzione (compila anche i bundle ES
 npx vercel@latest login         # una volta per computer
 npx vercel@latest link --project fitup-ruota
 npx vercel@latest env pull .env.production.vercel --environment production   # credenziali produzione (mai su git)
-npx vercel@latest deploy --prod --yes                                        # pubblica
+git push                                                                     # pubblica (deploy automatico da main)
+npx vercel@latest deploy --prod --yes                                        # pubblicazione manuale, se serve
 node scripts/migrate-local-to-db.mjs .env.production.vercel                  # copia ruote/TV locali nel DB di produzione (non le giocate)
 ```
 
