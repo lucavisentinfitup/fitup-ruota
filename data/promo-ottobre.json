@@ -1,0 +1,677 @@
+{
+ "source": "Appunti Promo Ottobre - Foglio2 (4).pdf",
+ "events": [
+  {
+   "date": "2026-10-17",
+   "type": "Open Day",
+   "club": "Cassano d'Adda",
+   "area": "Area 10",
+   "areaManager": "Federica Stucchi",
+   "ticket": "21015"
+  },
+  {
+   "date": "2026-10-17",
+   "type": "Open Day",
+   "club": "Cinisello Balsamo",
+   "area": "Area 4",
+   "areaManager": "Federica Stucchi",
+   "ticket": "21015"
+  },
+  {
+   "date": "2026-10-17",
+   "type": "Open Day",
+   "club": "Rozzano",
+   "area": "Area 4",
+   "areaManager": "Federica Stucchi",
+   "ticket": "21015"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Brescia Est",
+   "area": "Area 6",
+   "areaManager": "Alessandro Boselli",
+   "ticket": "20642"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Carpenedolo",
+   "area": "Area 6",
+   "areaManager": "Alessandro Boselli",
+   "ticket": "20642"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Castel Mella",
+   "area": "Area 6",
+   "areaManager": "Alessandro Boselli",
+   "ticket": "20642"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Castenedolo",
+   "area": "Area 6",
+   "areaManager": "Alessandro Boselli",
+   "ticket": "20642"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Cellatica",
+   "area": "Area 6",
+   "areaManager": "Alessandro Boselli",
+   "ticket": "20642"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Chiari",
+   "area": "Area 6",
+   "areaManager": "Alessandro Boselli",
+   "ticket": "20642"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Desenzano del Garda",
+   "area": "Area 6",
+   "areaManager": "Alessandro Boselli",
+   "ticket": "20642"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Cremona",
+   "area": "Area 12",
+   "areaManager": "Alessandro Boselli",
+   "ticket": "20642"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Cagliari Elmas",
+   "area": "Area 3",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Carbonia",
+   "area": "Area 3",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Chieti",
+   "area": "Area 5",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Corciano",
+   "area": "Area 5",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Ferrara Respighi",
+   "area": "Area 2",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Mortara",
+   "area": "Area 1",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Pescara",
+   "area": "Area 5",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Cecina",
+   "area": "Area 7",
+   "areaManager": "Alessio Fondoni",
+   "ticket": "20933"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Follonica",
+   "area": "Area 7",
+   "areaManager": "Alessio Fondoni",
+   "ticket": "20933"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Brembate",
+   "area": "Area 10",
+   "areaManager": "Andrea Frantini",
+   "ticket": "21012"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Finale Ligure",
+   "area": "Area 11",
+   "areaManager": "Andrea Frantini",
+   "ticket": "21012"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Castelfranco Veneto",
+   "area": "Area 8",
+   "areaManager": "Camillo Cipolla",
+   "ticket": "21008"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Marcon",
+   "area": "Area 9",
+   "areaManager": "Camillo Cipolla",
+   "ticket": "21008"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Paese",
+   "area": "Area 8",
+   "areaManager": "Camillo Cipolla",
+   "ticket": "21008"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "San Donà di Piave",
+   "area": "Area 9",
+   "areaManager": "Camillo Cipolla",
+   "ticket": "21008"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Spresiano",
+   "area": "Area 9",
+   "areaManager": "Camillo Cipolla",
+   "ticket": "21008"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Zero Branco",
+   "area": "Area 8",
+   "areaManager": "Camillo Cipolla",
+   "ticket": "21008"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Atripalda",
+   "area": null,
+   "areaManager": "Edoardo Palladino",
+   "ticket": "20818"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Moncalieri",
+   "area": "Area 11",
+   "areaManager": "Edoardo Palladino",
+   "ticket": "20818"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Montelabbate",
+   "area": "Area 5",
+   "areaManager": "Edoardo Palladino",
+   "ticket": "20818"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Rimini",
+   "area": "Area 5",
+   "areaManager": "Edoardo Palladino",
+   "ticket": "20818"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Torino Mirafiori",
+   "area": "Area 11",
+   "areaManager": "Edoardo Palladino",
+   "ticket": "20818"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Avola",
+   "area": "Area 13",
+   "areaManager": "Gabriele Brunetti",
+   "ticket": "21014"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Belgioioso",
+   "area": "Area 12",
+   "areaManager": "Gabriele Brunetti",
+   "ticket": "21014"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Borgo Virgilio",
+   "area": "Area 12",
+   "areaManager": "Gabriele Brunetti",
+   "ticket": "21014"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Palermo",
+   "area": "Area 13",
+   "areaManager": "Gabriele Brunetti",
+   "ticket": "21014"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Carini",
+   "area": "Area 13",
+   "areaManager": "Gabriele Brunetti",
+   "ticket": "21014"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Sacile",
+   "area": "Area 9",
+   "areaManager": "Gaia Visentin",
+   "ticket": "21007"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Albavilla",
+   "area": "Area 4",
+   "areaManager": "Martina Bracchi",
+   "ticket": "20827"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Borgosesia",
+   "area": "Area 11",
+   "areaManager": "Martina Bracchi",
+   "ticket": "20827"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Montano Lucino",
+   "area": "Area 4",
+   "areaManager": "Martina Bracchi",
+   "ticket": "20827"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Novara",
+   "area": "Area 1",
+   "areaManager": "Martina Bracchi",
+   "ticket": "20827"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Vergiate",
+   "area": "Area 1",
+   "areaManager": "Martina Bracchi",
+   "ticket": "20827"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Lecco",
+   "area": "Area 4",
+   "areaManager": "Paolo Conti",
+   "ticket": "20860"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Lissone",
+   "area": "Area 4",
+   "areaManager": "Paolo Conti",
+   "ticket": "20860"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Melegnano",
+   "area": "Area 4",
+   "areaManager": "Paolo Conti",
+   "ticket": "20860"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Open Day",
+   "club": "Osnago",
+   "area": "Area 10",
+   "areaManager": "Paolo Conti",
+   "ticket": "20860"
+  },
+  {
+   "date": "2026-10-24",
+   "type": "Open Day",
+   "club": "Cambiago",
+   "area": "Area 10",
+   "areaManager": "Federica Stucchi",
+   "ticket": "21015"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Open Day",
+   "club": "Suisio",
+   "area": "Area 10",
+   "areaManager": "Andrea Frantini",
+   "ticket": "21012"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Open Day",
+   "club": "Piombino Dese",
+   "area": "Area 8",
+   "areaManager": "Ruggero Ferri",
+   "ticket": "20971"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Open Day",
+   "club": "Rovigo",
+   "area": "Area 2",
+   "areaManager": "Ruggero Ferri",
+   "ticket": "20971"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Open Day",
+   "club": "Bernareggio",
+   "area": "Area 10",
+   "areaManager": "Paolo Conti",
+   "ticket": "20860"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Open Day",
+   "club": "Vicenza",
+   "area": "Area 8",
+   "areaManager": "Gaia Visentin",
+   "ticket": "21007"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Open Day",
+   "club": "Montecchio Maggiore",
+   "area": "Area 8",
+   "areaManager": "Gaia Visentin",
+   "ticket": "21007"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Open Day",
+   "club": "Arezzo",
+   "area": "Area 7",
+   "areaManager": "Alessio Fondoni",
+   "ticket": "20933"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Open Day",
+   "club": "Città di Castello",
+   "area": "Area 7",
+   "areaManager": "Alessio Fondoni",
+   "ticket": "20933"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Open Day",
+   "club": "Trento",
+   "area": "Area 8",
+   "areaManager": "Camillo Cipolla",
+   "ticket": "21008"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Open Day",
+   "club": "Besana Brianza",
+   "area": "Area 4",
+   "areaManager": "Federica Stucchi",
+   "ticket": "21015"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Cagliari Newton",
+   "area": "Area 3",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Casale Monferrato",
+   "area": "Area 11",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Ferrara Fellini",
+   "area": "Area 2",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Osimo",
+   "area": "Area 5",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Tortoreto",
+   "area": "Area 5",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Vigevano",
+   "area": "Area 1",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Collesalvetti",
+   "area": "Area 7",
+   "areaManager": "Alessio Fondoni",
+   "ticket": "20933"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Ponsacco",
+   "area": "Area 7",
+   "areaManager": "Alessio Fondoni",
+   "ticket": "20933"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Busto Arsizio",
+   "area": "Area 1",
+   "areaManager": "Andrea Brenda Puleri",
+   "ticket": "20633"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Giussano",
+   "area": "Area 4",
+   "areaManager": "Andrea Brenda Puleri",
+   "ticket": "20633"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Nova Milanese",
+   "area": "Area 4",
+   "areaManager": "Andrea Brenda Puleri",
+   "ticket": "20633"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Seregno",
+   "area": "Area 4",
+   "areaManager": "Andrea Brenda Puleri",
+   "ticket": "20633"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Broni",
+   "area": "Area 12",
+   "areaManager": "Gabriele Brunetti",
+   "ticket": "21014"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Guardamiglio",
+   "area": "Area 12",
+   "areaManager": "Gabriele Brunetti",
+   "ticket": "21014"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Porto Mantovano",
+   "area": "Area 12",
+   "areaManager": "Gabriele Brunetti",
+   "ticket": "21014"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Susegana",
+   "area": "Area 9",
+   "areaManager": "Gaia Visentin",
+   "ticket": "21007"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Cervignano del Friuli",
+   "area": "Area 9",
+   "areaManager": "Luca Ventriglia",
+   "ticket": "20490"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Codroipo",
+   "area": "Area 9",
+   "areaManager": "Luca Ventriglia",
+   "ticket": "20490"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Spilimbergo",
+   "area": "Area 9",
+   "areaManager": "Luca Ventriglia",
+   "ticket": "20490"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Tavagnacco",
+   "area": "Area 9",
+   "areaManager": "Luca Ventriglia",
+   "ticket": "20490"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Montebelluna",
+   "area": "Area 8",
+   "areaManager": "Ruggero Ferri",
+   "ticket": "20971"
+  },
+  {
+   "date": "2026-10-19",
+   "type": "Compleanno",
+   "club": "Rosà",
+   "area": "Area 8",
+   "areaManager": "Ruggero Ferri",
+   "ticket": "20971"
+  },
+  {
+   "date": "2026-10-24",
+   "type": "Compleanno",
+   "club": "Biella",
+   "area": "Area 11",
+   "areaManager": "Federica Stucchi",
+   "ticket": "21015"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Compleanno",
+   "club": "Occhiobello",
+   "area": "Area 2",
+   "areaManager": "Alessandro Genova",
+   "ticket": "20966"
+  },
+  {
+   "date": "2026-10-26",
+   "type": "Compleanno",
+   "club": "Bra",
+   "area": "Area 11",
+   "areaManager": "Edoardo Palladino",
+   "ticket": "20818"
+  }
+ ]
+}

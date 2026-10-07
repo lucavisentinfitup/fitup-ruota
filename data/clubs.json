@@ -1,0 +1,453 @@
+{
+ "source": "CORE – palestre aperte brand FitUP",
+ "exportedAt": "2026-10-07",
+ "clubs": [
+  {
+   "coreId": "09c04929-ca72-4aa5-9979-93fc64e4f37b",
+   "name": "Abbiategrasso",
+   "address": "Via Ada Negri, 2, 20081 Abbiategrasso (MI)"
+  },
+  {
+   "coreId": "b916f2af-8394-423a-b44e-082514363eca",
+   "name": "Albavilla",
+   "address": "Via Don Felice Ballabio, 9, 22031 Albavilla (CO)"
+  },
+  {
+   "coreId": "b442f6ec-f89f-4283-91e2-4b99bb91e2d5",
+   "name": "Arezzo",
+   "address": "Via Luigi Galvani, 14/h1, 52100 Arezzo (AR)"
+  },
+  {
+   "coreId": "7cbac0d0-73ff-475b-9788-a8d87d71f0da",
+   "name": "Atripalda",
+   "address": "Contrada S. Lorenzo, 11, 83042 Atripalda (AV)"
+  },
+  {
+   "coreId": "b9b6aa76-123e-4906-aca1-1d327cbd9209",
+   "name": "Avola",
+   "address": "Strada Contrada Merlino, snc, 96012 Avola (SR)"
+  },
+  {
+   "coreId": "ab83e669-7f96-42ba-948e-6b449b3ffe4e",
+   "name": "Belgioioso",
+   "address": "Via Giulio Natta, 2, 27011 Belgioioso (PV)"
+  },
+  {
+   "coreId": "e794d932-7245-49e3-83c3-b7f59eeff3d2",
+   "name": "Bernareggio",
+   "address": "Via Roma, 36A, 20881 Bernareggio (MB)"
+  },
+  {
+   "coreId": "fe130417-d781-4aa8-a55c-6846fe27af2d",
+   "name": "Besana Brianza",
+   "address": "Via Giancarlo Puecher, 18, 20842 Besana in Brianza (MB)"
+  },
+  {
+   "coreId": "d721e67b-c488-4440-94a7-fa34cf33988e",
+   "name": "Biella",
+   "address": "Via Felice Coppa, 35a, 13900 Biella (BI)"
+  },
+  {
+   "coreId": "8c5b92e0-9f3e-49b0-baaf-e315bce05e76",
+   "name": "Borgo Virgilio",
+   "address": "Strada Romana, 36, 46030 Borgo Virgilio (MN)"
+  },
+  {
+   "coreId": "a35ed4a2-e203-435a-9011-8093c7b6000c",
+   "name": "Borgosesia",
+   "address": "Viale Varallo, 147, 13011 Borgosesia (VC)"
+  },
+  {
+   "coreId": "0be53315-980d-4501-9c50-5124e26909fe",
+   "name": "Bra",
+   "address": "Strada San Matteo, 1/F, 12042 Bra (CN)"
+  },
+  {
+   "coreId": "5236c6ec-bf8f-44ab-ae40-0d140983beaf",
+   "name": "Brembate",
+   "address": "Via Vittorio Veneto, 84, 24041 Brembate (BG)"
+  },
+  {
+   "coreId": "65ac7b78-b417-42e8-93b9-79685be65319",
+   "name": "Brescia Est",
+   "address": "Viale Sant'Eufemia, 194, 25135 Brescia (BS)"
+  },
+  {
+   "coreId": "e439f136-049b-44a9-bfce-4989f200082e",
+   "name": "Broni",
+   "address": "Via Quartiere Piave, 8D, 27043 Broni (PV)"
+  },
+  {
+   "coreId": "8ff45249-3b03-4197-b84c-230428617544",
+   "name": "Busto Arsizio",
+   "address": "Corso Sempione, 194, 21052 Busto Arsizio (VA)"
+  },
+  {
+   "coreId": "2f7afa4c-3d53-4d8c-be91-052ec3051108",
+   "name": "Cagliari Elmas",
+   "address": "Viale Elmas, 24/26, 09122 Cagliari (CA)"
+  },
+  {
+   "coreId": "9187dfb2-c3aa-47cc-b174-1f7218be3c10",
+   "name": "Cagliari Newton",
+   "address": "Via I. Newton, 11, 09131 Cagliari (CA)"
+  },
+  {
+   "coreId": "b4b7e627-5e50-4ded-a706-48288521e6dc",
+   "name": "Cambiago",
+   "address": "Via Papa Giovanni Paolo II, 20040 Cambiago (MI)"
+  },
+  {
+   "coreId": "36530181-7ddc-4834-8bfa-07d99fefcbbf",
+   "name": "Carbonia",
+   "address": "Via Cannas, 39, 09013 Carbonia (SU)"
+  },
+  {
+   "coreId": "7da5ab52-7aed-48ae-8490-6b74583802f8",
+   "name": "Caresanablot",
+   "address": "Via Vercelli, 18, 13030 Caresanablot (VC)"
+  },
+  {
+   "coreId": "bc315ea0-1569-432b-9076-dd3c3863b851",
+   "name": "Carini",
+   "address": "SS 113 Settentrionale Sicula, Snc, 90044 Carini (PA)"
+  },
+  {
+   "coreId": "65e3e203-6903-476b-bbee-bf018fef3ec5",
+   "name": "Carpenedolo",
+   "address": "Via Achille Pozzi, 3, 25013 Carpenedolo (BS)"
+  },
+  {
+   "coreId": "a2604bf2-86c8-4593-aed5-96649c61f68b",
+   "name": "Casale Monferrato",
+   "address": "Via Marcello Adam, 94, 15033 Casale Monferrato (AL)"
+  },
+  {
+   "coreId": "c41aef3a-bd97-42f8-a029-f3051cf9d3a9",
+   "name": "Cassano d'Adda",
+   "address": "Piazzale Pietro Gobetti, 33, 20062 Cassano d'Adda (MI)"
+  },
+  {
+   "coreId": "5509ee11-0807-4304-9e51-cfe241c76aff",
+   "name": "Castel Mella",
+   "address": "Via Don Bergomi, 86, 25030 Castel Mella (BS)"
+  },
+  {
+   "coreId": "c7c15308-06c9-45ba-a437-1c7329d372ef",
+   "name": "Castelfranco Veneto",
+   "address": "Via Circonvallazione Est, 23a, 31033 Castelfranco Veneto (TV)"
+  },
+  {
+   "coreId": "c2d24b17-1af4-4578-804e-ee9decd104ad",
+   "name": "Castenedolo",
+   "address": "Via Beato L. Pavoni, 7, 25014 Castenedolo (BS)"
+  },
+  {
+   "coreId": "36588aa9-2415-41c1-9491-b409ab208db5",
+   "name": "Cecina",
+   "address": "Corte Acquerta, Per la Val di Cecina, 57023 Cecina (LI)"
+  },
+  {
+   "coreId": "d79018bd-ce1a-49b2-a294-4c63195d7659",
+   "name": "Cellatica",
+   "address": "Via Guglielmo Marconi, snc, 25060 Cellatica (BS)"
+  },
+  {
+   "coreId": "9f674c64-f7b3-499c-956b-850203ffec67",
+   "name": "Cervignano del Friuli",
+   "address": "Via dai Novai, 3, 33052 Cervignano del Friuli (UD)"
+  },
+  {
+   "coreId": "6c77567b-af53-4469-9a45-fc7628db2040",
+   "name": "Chiari",
+   "address": "Via Cologne, 1/A, 25032 Chiari (BS)"
+  },
+  {
+   "coreId": "ec1b0ad3-2362-494f-968e-a319ab4bf790",
+   "name": "Chieti",
+   "address": "Viale Filippo Masci, 66100 Chieti (CH)"
+  },
+  {
+   "coreId": "29b20157-6034-41dc-85e4-3cf0a584aa8e",
+   "name": "Cinisello Balsamo",
+   "address": "Via Galileo Galilei, 47, 20092 Cinisello Balsamo (MI)"
+  },
+  {
+   "coreId": "8ce4b47d-4686-4373-8be2-18444f0041df",
+   "name": "Città di Castello",
+   "address": "Via Georges Sorel, 24, 06012 Città di Castello (PG)"
+  },
+  {
+   "coreId": "d582030d-7f6b-481a-8bcb-d3ba138c9a18",
+   "name": "Codroipo",
+   "address": "Viale Venezia, 148, 33033 Codroipo (UD)"
+  },
+  {
+   "coreId": "4687ba1c-0556-4b36-8dfa-c083dcd3c8a8",
+   "name": "Collesalvetti",
+   "address": "Via Aurelia, 134, 57017 Collesalvetti (LI)"
+  },
+  {
+   "coreId": "2f8f6899-c9dc-4432-a0ed-1e4f73f65816",
+   "name": "Corciano",
+   "address": "Via Filippo Turati, 48, 06073 Corciano (PG)"
+  },
+  {
+   "coreId": "1bc9a8cd-1765-44aa-97bf-a918e77dfdfb",
+   "name": "Cremona",
+   "address": "Via Rosario, 9, 26100 Cremona (CR)"
+  },
+  {
+   "coreId": "ba8239c8-35fe-45b5-8b57-982c3bc23ddc",
+   "name": "Desenzano del Garda",
+   "address": "Via Mantova, 24, 25015 Desenzano del Garda (BS)"
+  },
+  {
+   "coreId": "59553aad-3c94-463d-8e5e-6bacded6c88e",
+   "name": "Ferrara Fellini",
+   "address": "Via Federico Fellini, 6, 44122 Ferrara (FE)"
+  },
+  {
+   "coreId": "e60700d3-1518-4de0-86be-a833f98423e1",
+   "name": "Ferrara Respighi",
+   "address": "Via Respighi, 4, 44124 Ferrara (FE)"
+  },
+  {
+   "coreId": "ac850a3c-b301-484d-856a-1c28786fb253",
+   "name": "Finale Ligure",
+   "address": "Via Maestri del Lavoro d'Italia, snc, 17024 Finale Ligure (SV)"
+  },
+  {
+   "coreId": "1d2d5889-1667-487e-b8fa-0a0ec8b77893",
+   "name": "Follonica",
+   "address": "Via del Fonditore, 1/1a, 58022 Follonica (GR)"
+  },
+  {
+   "coreId": "d0803c69-a6f6-47be-9921-c9bace208c64",
+   "name": "Giussano",
+   "address": "Via Alfredo Catalani, 112, 20833 Giussano (MB)"
+  },
+  {
+   "coreId": "aa62655d-5cd7-4aa1-825f-655d7eb56ff0",
+   "name": "Guardamiglio",
+   "address": "Via Roma, 148, 26862 Guardamiglio (LO)"
+  },
+  {
+   "coreId": "210fbeb1-a774-49f5-be6d-64ffd2910a27",
+   "name": "Lecco",
+   "address": "Via Risorgimento, 57, 23900 Lecco (LC)"
+  },
+  {
+   "coreId": "dec24171-0326-4c09-8e89-4e0ad323da15",
+   "name": "Lissone",
+   "address": "Via Volontari del Sangue, 31, 20851 Lissone (MB)"
+  },
+  {
+   "coreId": "410e345e-7780-4f99-a4cd-e1a1c6d5a54e",
+   "name": "Marcon",
+   "address": "Via Enrico Mattei, 1/C, 30020 Marcon (VE)"
+  },
+  {
+   "coreId": "81ac9d95-bf85-43ab-b802-a466774f5f60",
+   "name": "Melegnano",
+   "address": "Via dei Platani, 32, 20077 Melegnano (MI)"
+  },
+  {
+   "coreId": "6355d2d8-feeb-4e10-8d52-c28a609e3d60",
+   "name": "Moncalieri",
+   "address": "Via Vittime di Bologna, 20-22, 10024 Moncalieri (TO)"
+  },
+  {
+   "coreId": "665a9191-cbc3-4932-a1cf-0500d5a768cc",
+   "name": "Montano Lucino",
+   "address": "Via Valtellina, 5, 22070 Montano Lucino (CO)"
+  },
+  {
+   "coreId": "948a3afd-8ae6-4b6a-9907-07d67faa5342",
+   "name": "Montebelluna",
+   "address": "Via Schiavonesca Priula, 72, 31044 Montebelluna (TV)"
+  },
+  {
+   "coreId": "396be257-fb69-4bf9-ba69-eca26eab0c5e",
+   "name": "Montecchio Maggiore",
+   "address": "Viale Trieste, 78, 36075 Montecchio Maggiore (VI)"
+  },
+  {
+   "coreId": "3457be2e-6af1-4b8d-9b4b-d01dce80e7d6",
+   "name": "Montelabbate",
+   "address": "Via Bellini, 25, 61025 Montelabbate (PU)"
+  },
+  {
+   "coreId": "f4383141-6363-463c-964d-814e8407faec",
+   "name": "Mortara",
+   "address": "Strada Pavese, 1, 27036 Mortara (PV)"
+  },
+  {
+   "coreId": "e40566c9-c34a-4189-aa5f-ac7e147f614a",
+   "name": "Nova Milanese",
+   "address": "Via A. Locatelli, 36c, 20834 Nova Milanese (MB)"
+  },
+  {
+   "coreId": "cd1fc07a-2b15-4b66-b39e-0cf64302e222",
+   "name": "Novara",
+   "address": "Via Gibellini Tornielli Boniperti Giovanni, 33, 28100 Novara (NO)"
+  },
+  {
+   "coreId": "875536e0-d578-484c-93a3-34f49ca0a53e",
+   "name": "Occhiobello",
+   "address": "Via Eridania, 56, 45030 Occhiobello (RO)"
+  },
+  {
+   "coreId": "dc5303f0-ee37-45ac-ba5d-3015b36f82fd",
+   "name": "Osimo",
+   "address": "Via Molino Basso, 2, 60027 Osimo (AN)"
+  },
+  {
+   "coreId": "f144e214-d388-4d37-93be-e63db0ed4c92",
+   "name": "Osnago",
+   "address": "Via Statale, 8, 23875 Osnago (LC)"
+  },
+  {
+   "coreId": "a45f7b33-2053-4f7b-8533-cad4c94d9d51",
+   "name": "Paese",
+   "address": "Viale Sante Biasuzzi, 28, 31038 Paese (TV)"
+  },
+  {
+   "coreId": "47fbf220-bd78-4272-980e-06e1d7821652",
+   "name": "Palermo",
+   "address": "Via del Capricorno, 9/C, Palermo (PA)"
+  },
+  {
+   "coreId": "721a0f96-bbc8-4be4-bc1c-6e9dc8629b2a",
+   "name": "Pescara",
+   "address": "Via Albegna, 15, 65128 Pescara (PE)"
+  },
+  {
+   "coreId": "36a50582-6403-41fb-b637-460f48f13407",
+   "name": "Piombino Dese",
+   "address": "Via Antonio Pacinotti, 12, 35017 Piombino Dese (PD)"
+  },
+  {
+   "coreId": "669b36df-968e-49ae-ba40-545ee75af24c",
+   "name": "Ponsacco",
+   "address": "Viale Italia, 5, 56038 Ponsacco (PI)"
+  },
+  {
+   "coreId": "8b0ca6c4-fb79-4b9a-8078-d234af41ba5d",
+   "name": "Porto Mantovano",
+   "address": "Via Atene, 2, 46047 Porto Mantovano (MN)"
+  },
+  {
+   "coreId": "ce960c7a-4b9a-45a7-a4e3-d1331ce48d61",
+   "name": "Rimini",
+   "address": "Via Marte, 26, 47923 Rimini (RN)"
+  },
+  {
+   "coreId": "bffa95a9-35cf-49c9-a743-c382b3d24dee",
+   "name": "Rosà",
+   "address": "Via Alessandro Manzoni, 28C, 36027 Rosà (VI)"
+  },
+  {
+   "coreId": "4bc3d8b0-966b-42a2-9e63-43c3e9888687",
+   "name": "Rovigo",
+   "address": "Via Luigi Einaudi, 15, 45100 Rovigo (RO)"
+  },
+  {
+   "coreId": "be1012b3-1de4-4778-9fc2-e9a464e498ea",
+   "name": "Rozzano",
+   "address": "Via Manzoni, 21, 20089 Rozzano (MI)"
+  },
+  {
+   "coreId": "e1624127-9e89-4a71-bffa-70b3c1139297",
+   "name": "Sacile",
+   "address": "Viale S. Giovanni del Tempio, 86, 33077 Sacile (PN)"
+  },
+  {
+   "coreId": "e62d1c02-f7a8-43c8-9a62-69e0578236b9",
+   "name": "San Donà di Piave",
+   "address": "Via del Centenario, 25, 30027 San Donà di Piave (VE)"
+  },
+  {
+   "coreId": "24ca7902-2888-4aaf-ac62-99b5f52cebf0",
+   "name": "Seregno",
+   "address": "Via Giovanni Pacini, 22, 20831 Seregno (MB)"
+  },
+  {
+   "coreId": "36754dd6-a685-4b65-9d16-0a4e6771867d",
+   "name": "Spilimbergo",
+   "address": "Via Val Montanaia, 2, 33097 Spilimbergo (PN)"
+  },
+  {
+   "coreId": "57ab6d9d-42c8-4051-a14b-1cdfd1078fe6",
+   "name": "Spresiano",
+   "address": "Via Dante Alighieri, 126, 31027 Spresiano (TV)"
+  },
+  {
+   "coreId": "8b686cc5-c8aa-4b47-aafd-93a40ec5f323",
+   "name": "Suisio",
+   "address": "Via Guglielmo Marconi, 2, 24040 Suisio (BG)"
+  },
+  {
+   "coreId": "766e215f-396a-412a-942f-cdf0b6828ab5",
+   "name": "Susegana",
+   "address": "Via Conegliano, 75, 31058 Susegana (TV)"
+  },
+  {
+   "coreId": "e509781f-e21b-4400-997b-ee603d26194c",
+   "name": "Tavagnacco",
+   "address": "Via Nazionale, 131, 33010 Tavagnacco (UD)"
+  },
+  {
+   "coreId": "50e228bf-ba61-4120-90a0-fe2b40db5e2c",
+   "name": "Torino Mirafiori",
+   "address": "Corso Enrico Tazzoli, 228/4, 10137 Torino (TO)"
+  },
+  {
+   "coreId": "251f69e6-527a-40c0-b8c6-8bc18d9ff8e4",
+   "name": "Tortoreto",
+   "address": "Via Nazionale Adriatica, 1, 64018 Tortoreto (TE)"
+  },
+  {
+   "coreId": "af565c61-9c0d-4f08-934f-9bc98e7bc695",
+   "name": "Trento",
+   "address": "Via Bassa, 42, 38121 Trento (TN)"
+  },
+  {
+   "coreId": "087a2d28-7b99-45c7-ac84-f5d29c305113",
+   "name": "Vergiate",
+   "address": "Via Sempione, 94, 21029 Vergiate (VA)"
+  },
+  {
+   "coreId": "35037219-0aaf-4169-8ff6-24cc16cc7dd5",
+   "name": "Vicenza",
+   "address": "Via Ludovico Lazzaro Zamenhof, 807, 36100 Vicenza (VI)"
+  },
+  {
+   "coreId": "2cd60e92-e09c-488f-89e7-cf2476f72cf7",
+   "name": "Vigevano",
+   "address": "Corso Novara, 229, 27029 Vigevano (PV)"
+  },
+  {
+   "coreId": "132f9c43-65ce-4279-b282-fe8b700a8a69",
+   "name": "Zero Branco",
+   "address": "Via Treviso, 19, 31059 Zero Branco (TV)"
+  }
+ ],
+ "excluded": [
+  {
+   "name": "Casalgrande",
+   "coreId": "37a198a0-7f1f-4d5a-bad6-60f9895e1940",
+   "reason": "escluso dalla promo (richiesta 07/10/2026)"
+  },
+  {
+   "name": "Cogliate",
+   "coreId": "1d2685cf-5042-4726-9bcc-fa5a181dd1e3",
+   "reason": "escluso dalla promo (richiesta 07/10/2026)"
+  },
+  {
+   "name": "Trecastagni",
+   "coreId": "bcf763ee-435c-43f1-8e3b-912d0153008d",
+   "reason": "escluso dalla promo (richiesta 07/10/2026)"
+  }
+ ]
+}

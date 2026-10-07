@@ -1,0 +1,9 @@
+.data
+.env
+.env*.local
+node_modules
+.next
+public/uploads
+LINK-RUOTE-FITUP.csv
+.claude
+.env*

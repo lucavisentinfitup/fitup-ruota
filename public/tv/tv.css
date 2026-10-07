@@ -1,0 +1,63 @@
+/* Schermo TV 16:9 – CSS volutamente "vecchio stile" (niente variabili, grid, gap) per i TV VIDAA dal 2019. */
+html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; cursor: none; }
+body { font-family: Poppins, Arial, sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+#stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden;
+  -webkit-transform-origin: 0 0; transform-origin: 0 0; background: #000; }
+.bg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px;
+  background: -webkit-radial-gradient(520px 540px, circle, rgba(148,196,36,0.22) 0, rgba(0,0,0,0) 620px);
+  background: radial-gradient(circle 620px at 520px 540px, rgba(148,196,36,0.22) 0, rgba(0,0,0,0) 100%); }
+.hidden { display: none !important; }
+
+/* ruota: 940px a sinistra */
+.wheel { position: absolute; left: 60px; top: 90px; width: 940px; height: 940px; }
+.wheel-shadow { position: absolute; left: 2%; top: 2%; right: 2%; bottom: 2%; border-radius: 50%;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 120px rgba(148,196,36,0.22); }
+.rotor { position: absolute; left: 0; top: 0; width: 940px; height: 940px; will-change: transform;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+.rotor canvas { position: absolute; left: 0; top: 0; width: 940px; height: 940px; }
+#blur { opacity: 0; }
+.gloss { position: absolute; left: 0; top: 0; width: 940px; height: 940px; border-radius: 50%;
+  background: -webkit-radial-gradient(30% 18%, ellipse, rgba(255,255,255,0.16) 0, rgba(255,255,255,0) 45%);
+  background: radial-gradient(ellipse at 30% 18%, rgba(255,255,255,0.16) 0, rgba(255,255,255,0) 45%); }
+.hub { position: absolute; left: 50%; top: 50%; width: 244px; height: 244px; margin: -122px 0 0 -122px; border-radius: 50%;
+  background: #080808; box-shadow: 0 0 0 4px #0d0d0d, 0 0 0 8px rgba(148,196,36,0.9), 0 8px 30px rgba(0,0,0,0.6); text-align: center; }
+.hub img { width: 176px; margin-top: 76px; }
+.pointer { position: absolute; left: 50%; top: -42px; width: 80px; -webkit-transform-origin: 50% 28%; transform-origin: 50% 28%; z-index: 3; }
+.pointer svg { display: block; width: 80px; height: 123px; }
+
+/* colonna destra */
+#side { position: absolute; left: 1090px; top: 0; width: 770px; height: 1080px; }
+.logo { position: absolute; left: 0; top: 70px; height: 70px; }
+#tvname { position: absolute; right: 0; top: 92px; color: #888; font-size: 22px; }
+h1 { position: absolute; left: 0; top: 190px; margin: 0; font-family: Oswald, 'Arial Narrow', sans-serif; font-weight: 600;
+  font-size: 104px; line-height: 1; text-transform: uppercase; letter-spacing: 1px; }
+.tv-event { position: absolute; left: 120px; top: 300px; font-family: Oswald, 'Arial Narrow', sans-serif; text-transform: uppercase; color: #94C424; font-size: 34px; letter-spacing: 1px; white-space: nowrap; }
+.bar { position: absolute; left: 4px; top: 316px; width: 90px; height: 7px; background: #94C424; border-radius: 4px; }
+.panel { position: absolute; left: 0; top: 380px; width: 770px; height: 620px; }
+.kicker { font-family: Oswald, 'Arial Narrow', sans-serif; text-transform: uppercase; color: #94C424; font-size: 50px; font-weight: 700; margin: 0 0 10px; }
+.player { font-family: Oswald, 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 84px; font-weight: 600; margin: 0 0 24px; line-height: 1.05; }
+.txt { font-size: 32px; color: #cfcfcf; margin: 0; line-height: 1.35; }
+
+/* in attesa: QR + codice */
+.qrbox { position: absolute; left: 0; top: 10px; width: 330px; height: 330px; background: #fff; border-radius: 22px; padding: 18px;
+  -webkit-box-sizing: border-box; box-sizing: border-box; }
+.qrbox img { width: 294px; height: 294px; display: block; }
+.qrtext { position: absolute; left: 370px; top: 10px; width: 400px; }
+.qrtext .big { font-family: Oswald, 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 52px; line-height: 1.05; margin: 0 0 18px; font-weight: 600; }
+.codebox { position: absolute; left: 0; top: 390px; width: 770px; }
+.codebox p { margin: 0 0 8px; font-size: 26px; color: #aaa; }
+#code { font-family: Oswald, 'Arial Narrow', sans-serif; font-size: 96px; letter-spacing: 10px; color: #fff; font-weight: 600; }
+
+/* risultato */
+.prize { width: 700px; height: 230px; border-radius: 20px; margin: 10px 0 24px; text-align: center; line-height: 230px; overflow: hidden; }
+.prize img { max-width: 620px; max-height: 190px; vertical-align: middle; }
+.prize span { font-family: Oswald, 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 76px; font-weight: 600; }
+.rlabel { font-family: Oswald, 'Arial Narrow', sans-serif; text-transform: uppercase; font-size: 60px; font-weight: 600; margin: 0 0 12px; line-height: 1.05; }
+.result-penitenza .kicker { color: #fff; }
+#rcode { font-size: 30px; color: #aaa; letter-spacing: 3px; margin: 0; }
+#rplayer { font-size: 32px; color: #cfcfcf; margin: 0 0 6px; }
+
+#confetti { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; z-index: 10; }
+.boot { position: absolute; left: 0; bottom: 34px; width: 1920px; text-align: center; color: #777; font-size: 24px; }
+.err { position: absolute; left: 160px; right: 160px; bottom: 60px; padding: 24px 30px; background: #2a1214; border: 2px solid #5a2326;
+  color: #ffb4b6; border-radius: 14px; font-size: 30px; text-align: center; z-index: 20; }
