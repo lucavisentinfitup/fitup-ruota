@@ -29,11 +29,25 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 
 ## Da fare / aperti (aggiornare questa lista)
 - [x] **Login backend:** ID client OAuth "fitup-ruota Vercel" (progetto Google Cloud "FitUP Ruota", consenso Interno) creato l'8/10/2026; `AUTH_GOOGLE_ID` e `AUTH_GOOGLE_SECRET` su Vercel (Production).
+- [ ] Confermare che l'accesso a `/admin` con un account @fitup.it vada a buon fine (il redirect verso Google è verificato, il login completo no).
+- [ ] Ricaricare le pagine TV già aperte nei club (o "ricarica" dal backend → Schermi TV) per avere la correzione dell'8/10.
 - [ ] Passare Vercel a piano **Pro** (uso commerciale).
 - [ ] Abbiategrasso e Caresanablot: aperti su CORE ma assenti dal calendario → ruote "sempre attive"; decidere se disattivarle o dare una data.
 - [ ] Verificare le date: con il calendario fornito il 19 e il 26 ottobre cadono di **lunedì**.
 - [ ] Facoltativo: `ABLY_API_KEY` per eventi TV in tempo reale (oggi polling).
 - [ ] Provare su TV reali (Hisense VIDAA U3.0 e Samsung Tizen) e su telefoni vecchi; test di carico prima del lancio.
+
+## Diario sessioni (più recente in alto)
+**8/10/2026 – Mac mini (casa)**
+- Repo clonato in `~/Desktop/fitup-ruota`, CLI Vercel collegata, credenziali GitHub nel Portachiavi. Il connettore MCP Vercel di Claude non ha accesso al team (403): usare `npx vercel@latest`.
+- Login Google del backend configurato e pubblicato (vedi lista sopra).
+- **Correzione schermo TV** (`legacy/tv.ts`, commit e345878): dopo il risultato la TV restava 5 minuti su "Tocca a [nome]" e QR e codice sparivano. Ora:
+  - finito il risultato (9 s) torna subito il pannello con QR e codice;
+  - se un nuovo cliente si collega durante il risultato, mostra lui (`freshPair`);
+  - collegato ma senza giro: torna il QR dopo 60 s (`PAIRED_IDLE_MS`);
+  - la sessione resta valida: se lo stesso cliente rigira, la TV lo mostra.
+  - Invariato e voluto: durante il giro e ~6 s dopo il server rifiuta nuovi collegamenti (`busy`).
+  - Provato in locale con TV e cliente simulati (curl su `/api/tv/pair` e `/api/spin`).
 
 ## Comandi
 ```bash
