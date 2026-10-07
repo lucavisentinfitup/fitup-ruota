@@ -28,7 +28,7 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - Backend → "Applica il modello a tutti i club" copia spicchi/impostazioni sulle 86 ruote mantenendo date e area manager.
 
 ## Da fare / aperti (aggiornare questa lista)
-- [ ] **Login backend:** creare in Google Cloud (org fitup.it, consenso "Interno") un ID client OAuth web con redirect `https://fitup-ruota.vercel.app/api/auth/callback/google`; aggiungere `AUTH_GOOGLE_ID` e `AUTH_GOOGLE_SECRET` su Vercel (Production) e ripubblicare.
+- [x] **Login backend:** ID client OAuth "fitup-ruota Vercel" (progetto Google Cloud "FitUP Ruota", consenso Interno) creato l'8/10/2026; `AUTH_GOOGLE_ID` e `AUTH_GOOGLE_SECRET` su Vercel (Production).
 - [ ] Passare Vercel a piano **Pro** (uso commerciale).
 - [ ] Abbiategrasso e Caresanablot: aperti su CORE ma assenti dal calendario → ruote "sempre attive"; decidere se disattivarle o dare una data.
 - [ ] Verificare le date: con il calendario fornito il 19 e il 26 ottobre cadono di **lunedì**.
