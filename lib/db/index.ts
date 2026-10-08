@@ -29,7 +29,7 @@ export interface Store {
   listTvs(): Promise<TvScreen[]>;
   getTvByCode(code: string): Promise<TvScreen | null>;
   insertTv(tv: TvScreen): Promise<void>;
-  updateTvMeta(id: string, meta: { name: string; wheelId: string | null }): Promise<void>;
+  updateTvMeta(id: string, meta: { name: string; wheelId: string | null; qrMode: "play" | "rules" }): Promise<void>;
   deleteTv(id: string): Promise<void>;
   heartbeatTv(code: string, hb: TvHeartbeat): Promise<void>;
   /** Aggiorna lo stato in modo sicuro rispetto alle scritture concorrenti (confronto su `seq`). */

@@ -17,7 +17,7 @@ Parco TV (dalla matrice): **18 Hisense VIDAA** (U3.0 2019 → U9.5 2026) e **2 S
 1. Ogni TV apre una volta il proprio link `https://<dominio>/tv/<codice>` (backend → *Schermi TV*). La pagina mostra la ruota in 16:9, un QR e il codice a 6 cifre.
 2. Il giocatore, **solo se vuole**, inquadra il QR (oppure tocca “Guarda sulla TV del club” e digita il codice). Il telefono chiede l’abbinamento e attende la **conferma della TV** (massimo 6 s).
 3. A ogni giro il server decide l’esito e un **istante di frenata comune** (adesso + 1,4 s), poi lo invia alla TV. Telefono e TV usano lo stesso codice di fisica: si fermano sullo stesso spicchio, nello stesso punto e nello stesso momento. Il margine è di circa ±100 ms, dovuto alla sincronizzazione degli orologi.
-4. Se la TV è spenta, non risponde, è occupata o all’autotest ha misurato **meno di 24 fps**, il telefono mostra: *«Ci dispiace, con il televisore individuato non ci è possibile collegarci per sdoppiare lo schermo. Fai qui il tuo giro di Ruota»* e il bottone “Gira la ruota” si richiama con una lieve animazione.
+4. Se la TV è spenta, non risponde, è occupata o all’autotest ha misurato **meno di 12 fps** (tra 12 e 40 fps la TV gioca con grafica alleggerita), il telefono mostra: *«Ci dispiace, con il televisore individuato non ci è possibile collegarci per sdoppiare lo schermo. Fai qui il tuo giro di Ruota»* e il bottone “Gira la ruota” si richiama con una lieve animazione.
 
 Trasporto eventi: **Ably** (SSE, push istantaneo) se è impostata `ABLY_API_KEY`, altrimenti **polling** (ogni 2 s a riposo, ogni 0,4 s con un giocatore collegato). Il polling è stato provato: la TV riceve il giro circa 1,35 s prima dell’inizio della frenata.
 

@@ -663,6 +663,16 @@ function closeModal() {
 }
 function showResult() {
     var r = W.result;
+    if (tv) {
+        var linked = tv;
+        window.setTimeout(function () {
+            if (tv && tv.session === linked.session) {
+                xhr("DELETE", "/api/tv/pair?code=" + tv.code + "&session=" + tv.session, null, function () { });
+                tv = null;
+                updateTvUi();
+            }
+        }, 5000);
+    }
     var seg = wheel.segments[r.index];
     var title = r.kind === "premio" ? S.winTitle : r.kind === "penitenza" ? S.penaltyTitle : S.neutralTitle;
     modal('<p class="kicker">' + escapeHtml(title) + '</p><div class="prize" id="mprize"></div><h2 class="label">' + escapeHtml(r.label) + "</h2>" +

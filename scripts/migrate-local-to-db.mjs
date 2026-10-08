@@ -39,6 +39,7 @@ await sql`create table if not exists tv_screens (
   id text primary key, code text unique not null, name text not null, wheel_id text,
   created_at timestamptz not null default now(), last_seen_at timestamptz, boot_fps real, fps real,
   user_agent text, screen text, state jsonb not null)`;
+await sql`alter table tv_screens add column if not exists qr_mode text not null default 'play'`;
 
 let w = 0;
 for (const x of data.wheels) {

@@ -3,6 +3,7 @@ import { db, getDefaultWheel, getWheelCached, getWheelFresh } from "@/lib/db";
 import { toPublicWheel } from "@/lib/defaults";
 import { normalizeCode, realtimeMode } from "@/lib/tv";
 import { eventText } from "@/lib/event";
+import { REFERRAL_TAGLINE } from "@/lib/referral";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +25,8 @@ export async function GET(req: Request, { params }: { params: Promise<{ code: st
       wheelVersion: wheel.updatedAt,
       eventText: eventText(wheel.event),
       realtime: realtimeMode(),
+      qrMode: tv.qrMode === "rules" ? "rules" : "play",
+      tagline: tv.qrMode === "rules" ? REFERRAL_TAGLINE : "",
       playUrl: `${origin}/gioca/${wheel.slug}?tv=${tv.code}`,
       now: Date.now(),
     },

@@ -37,11 +37,12 @@ export async function GET(_: Request, { params }: { params: Promise<{ code: stri
     <h1 id="title">Gira la ruota</h1>
     <div class="bar"></div>
     <div id="event" class="tv-event"></div>
+    <div id="tagline" class="tv-tagline hidden"></div>
     <div id="panel-idle" class="panel">
       <div class="qrbox"><img id="qr" alt=""></div>
       <div class="qrtext">
-        <p class="big">Inquadra il QR e gioca sulla TV</p>
-        <p class="txt">Apri la fotocamera del telefono: la ruota gira qui e sul tuo schermo.</p>
+        <p class="big" id="qr-title">Inquadra il QR e gioca sulla TV</p>
+        <p class="txt" id="qr-text">Apri la fotocamera del telefono: la ruota gira qui e sul tuo schermo.</p>
       </div>
       <div class="codebox"><p>Oppure, dal gioco sul telefono, tocca “Guarda sulla TV” e inserisci il codice:</p><div id="code"></div></div>
       <div id="paired-note" class="paired-note hidden"><span class="dot"></span>Collegato: <b id="player-note"></b> · gira dal telefono</div>

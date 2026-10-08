@@ -1,2 +1,2 @@
 // generato da scripts/build-legacy.mjs
-export const TV_BUILD = "385e5cf8ce";
+export const TV_BUILD = "5039efa8fa";

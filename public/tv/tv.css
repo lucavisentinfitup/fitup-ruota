@@ -67,3 +67,7 @@ h1 { position: absolute; left: 0; top: 190px; margin: 0; font-family: Oswald, 'A
   background: rgba(148,196,36,0.14); border: 2px solid rgba(148,196,36,0.6); white-space: nowrap; max-width: 770px; overflow: hidden; }
 .paired-note b { color: #94C424; font-weight: 600; }
 .paired-note .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #94C424; margin-right: 12px; vertical-align: 1px; }
+
+/* modalità regolamento: frase sotto la data dell'evento, sopra al QR */
+.tv-tagline { position: absolute; left: 0; top: 352px; font-family: Poppins, Arial, sans-serif; font-size: 34px; font-weight: 600; color: #fff; white-space: nowrap; }
+.has-tagline .panel { top: 425px; }

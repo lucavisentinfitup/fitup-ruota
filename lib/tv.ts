@@ -5,7 +5,7 @@ import type { TvEvent, TvScreen, TvState } from "./types";
 /** La TV manda un heartbeat ogni 20 s: oltre questa soglia la consideriamo spenta. */
 export const TV_ONLINE_MS = 50_000;
 /** Sotto questi fps (misurati dall'autotest sulla TV) l'animazione non sarebbe fluida: non ci colleghiamo. */
-export const TV_MIN_FPS = 24;
+export const TV_MIN_FPS = 12;
 /** Sessione telefono↔TV chiusa dopo questa inattività */
 export const TV_SESSION_IDLE_MS = 5 * 60_000;
 const KEEP_EVENTS = 8;

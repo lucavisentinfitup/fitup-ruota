@@ -447,12 +447,18 @@ function fit() {
     return s;
 }
 var images = {};
+var MIN_FPS = 12;
+var LOW_POWER_FPS = 40;
+function lowPower() {
+    return bootFps !== null && bootFps < LOW_POWER_FPS;
+}
 function renderWheel() {
     if (!cfg)
         return;
     var s = fit();
     var dpr = window.devicePixelRatio || 1;
-    var px = Math.min(1400, Math.round(940 * s * dpr));
+    var px = Math.min(lowPower() ? 900 : 1400, Math.round(940 * s * dpr));
+    $("blur").style.display = lowPower() ? "none" : "";
     var sharp = $("sharp");
     var blur = $("blur");
     sharp.width = sharp.height = px;
@@ -515,7 +521,13 @@ function applyConfig(c) {
     $("title").innerHTML = escapeHtml(c.wheel.settings.title || "Gira la ruota");
     $("tvname").innerHTML = escapeHtml(c.tv.name);
     $("event").innerHTML = escapeHtml(c.eventText || "");
-    $("qr").src = api + "/qr?v=" + encodeURIComponent(c.wheelVersion);
+    var rules = c.qrMode === "rules";
+    $("tagline").innerHTML = rules ? escapeHtml(c.tagline || "") : "";
+    show("tagline", rules && !!c.tagline);
+    $("side").className = rules ? "has-tagline" : "";
+    $("qr-title").innerHTML = rules ? "Inquadra il QR e scopri come giocare" : "Inquadra il QR e gioca sulla TV";
+    $("qr-text").innerHTML = rules ? "Il regolamento completo si apre sul tuo telefono." : "Apri la fotocamera del telefono: la ruota gira qui e sul tuo schermo.";
+    $("qr").src = api + "/qr?v=" + encodeURIComponent(c.wheelVersion) + "&m=" + (c.qrMode || "play");
     $("code").innerHTML = c.tv.code.slice(0, 3) + " " + c.tv.code.slice(3);
 }
 function syncClock(cb) {
@@ -655,6 +667,14 @@ function showResult(ev) {
         winSound();
     }
     W.resultUntil = Date.now() + 9000;
+    var sid = ev.sessionId;
+    window.setTimeout(function () {
+        if (!session || session.id !== sid)
+            return;
+        xhr("DELETE", "/api/tv/pair?code=" + TV_CODE + "&session=" + encodeURIComponent(sid), null, function () { });
+        session = null;
+        freshPair = false;
+    }, 5000);
 }
 var pollTimer = 0;
 function poll() {
@@ -767,17 +787,19 @@ function frame() {
                 show("boot", false);
                 panel(session ? "paired" : "idle");
                 hello();
-                if (bootFps < 24)
+                if (bootFps < MIN_FPS)
                     fatal("Questo televisore non è abbastanza fluido per la ruota (" + bootFps + " fps). Nuovo test tra un minuto.");
                 else
                     show("err", false);
+                if (lowPower())
+                    renderWheel();
             }
             break;
         }
         case "idle":
             W.v += (8 - W.v) * Math.min(1, dt * 2);
             W.theta += W.v * dt;
-            if (bootFps !== null && bootFps < 24 && !session && t - lastTest > 60000) {
+            if (bootFps !== null && bootFps < MIN_FPS && !session && t - lastTest > 60000) {
                 W.phase = "boot";
                 W.t0 = t;
                 frames = 0;

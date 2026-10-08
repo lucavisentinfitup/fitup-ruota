@@ -114,6 +114,15 @@ export default function Game({ wheel: initialWheel, remaining: remainingInit, cl
       }
       const r = pending.current!;
       setResult(r);
+      // giro fatto con la TV: dopo 5 s (il tempo di leggere l'esito) il telefono si scollega,
+      // così la TV torna libera con QR e codice per il prossimo cliente
+      const linked = tvRef.current.status === "linked" ? tvRef.current.link : null;
+      if (linked) {
+        setTimeout(() => {
+          const now = tvRef.current;
+          if (now.status === "linked" && now.link?.session === linked.session) now.disconnect();
+        }, 5000);
+      }
       if (r.kind === "premio") {
         setBurst((b) => b + 1);
         winSound();

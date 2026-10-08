@@ -16,6 +16,9 @@ interface Config {
   wheelVersion: string;
   eventText: string;
   realtime: "ably" | "poll";
+  /** "rules": il QR apre il regolamento (le giocate si fanno in reception) */
+  qrMode: "play" | "rules";
+  tagline: string;
   playUrl: string;
   now: number;
 }
@@ -63,11 +66,19 @@ function fit() {
 
 // ------------------------------------------------------------------ disegno ruota
 var images: Record<string, HTMLImageElement> = {};
+/** Sotto questa soglia la TV non è usabile; tra MIN_FPS e LOW_POWER_FPS si gioca con grafica alleggerita. */
+var MIN_FPS = 12;
+var LOW_POWER_FPS = 40;
+function lowPower() {
+  return bootFps !== null && bootFps < LOW_POWER_FPS;
+}
 function renderWheel() {
   if (!cfg) return;
   var s = fit();
   var dpr = window.devicePixelRatio || 1;
-  var px = Math.min(1400, Math.round(940 * s * dpr));
+  // TV lente: bitmap più piccola e niente layer di motion blur, così l'animazione resta fluida
+  var px = Math.min(lowPower() ? 900 : 1400, Math.round(940 * s * dpr));
+  $("blur").style.display = lowPower() ? "none" : "";
   var sharp = $("sharp") as HTMLCanvasElement;
   var blur = $("blur") as HTMLCanvasElement;
   sharp.width = sharp.height = px;
@@ -126,7 +137,13 @@ function applyConfig(c: Config) {
   $("title").innerHTML = escapeHtml(c.wheel.settings.title || "Gira la ruota");
   $("tvname").innerHTML = escapeHtml(c.tv.name);
   $("event").innerHTML = escapeHtml(c.eventText || "");
-  ($("qr") as HTMLImageElement).src = api + "/qr?v=" + encodeURIComponent(c.wheelVersion);
+  var rules = c.qrMode === "rules";
+  $("tagline").innerHTML = rules ? escapeHtml(c.tagline || "") : "";
+  show("tagline", rules && !!c.tagline);
+  $("side").className = rules ? "has-tagline" : "";
+  $("qr-title").innerHTML = rules ? "Inquadra il QR e scopri come giocare" : "Inquadra il QR e gioca sulla TV";
+  $("qr-text").innerHTML = rules ? "Il regolamento completo si apre sul tuo telefono." : "Apri la fotocamera del telefono: la ruota gira qui e sul tuo schermo.";
+  ($("qr") as HTMLImageElement).src = api + "/qr?v=" + encodeURIComponent(c.wheelVersion) + "&m=" + (c.qrMode || "play");
   $("code").innerHTML = c.tv.code.slice(0, 3) + " " + c.tv.code.slice(3);
 }
 
@@ -267,6 +284,15 @@ function showResult(ev: SpinEvent) {
     winSound();
   }
   W.resultUntil = Date.now() + 9000;
+  // 5 s per leggere l'esito, poi il telefono viene scollegato (se non l'ha già fatto lui):
+  // la TV torna libera per il prossimo cliente
+  var sid = ev.sessionId;
+  window.setTimeout(function () {
+    if (!session || session.id !== sid) return;
+    xhr("DELETE", "/api/tv/pair?code=" + TV_CODE + "&session=" + encodeURIComponent(sid), null, function () {});
+    session = null;
+    freshPair = false;
+  }, 5000);
 }
 
 // ------------------------------------------------------------------ trasporto: Ably SSE o polling
@@ -382,8 +408,10 @@ function frame() {
         show("boot", false);
         panel(session ? "paired" : "idle");
         hello();
-        if (bootFps < 24) fatal("Questo televisore non è abbastanza fluido per la ruota (" + bootFps + " fps). Nuovo test tra un minuto.");
+        // solo una TV davvero inutilizzabile mostra l'avviso; altrimenti si gioca, alleggerendo la grafica se serve
+        if (bootFps < MIN_FPS) fatal("Questo televisore non è abbastanza fluido per la ruota (" + bootFps + " fps). Nuovo test tra un minuto.");
         else show("err", false);
+        if (lowPower()) renderWheel();
       }
       break;
     }
@@ -392,7 +420,7 @@ function frame() {
       W.v += (8 - W.v) * Math.min(1, dt * 2);
       W.theta += W.v * dt;
       // TV risultata lenta (magari solo all'accensione): ripete l'autotest ogni minuto
-      if (bootFps !== null && bootFps < 24 && !session && t - lastTest > 60000) {
+      if (bootFps !== null && bootFps < MIN_FPS && !session && t - lastTest > 60000) {
         W.phase = "boot";
         W.t0 = t;
         frames = 0;

@@ -51,6 +51,7 @@ function rowToTv(r: Row): TvScreen {
     fps: (r.fps as number) ?? null,
     userAgent: (r.user_agent as string) ?? null,
     screen: (r.screen as string) ?? null,
+    qrMode: r.qr_mode === "rules" ? "rules" : "play",
     state: (r.state as TvState) ?? emptyTvState(),
   };
 }
@@ -118,6 +119,7 @@ export async function createPostgresStore(url: string): Promise<Store> {
     screen text,
     state jsonb not null
   )`;
+  await sql`alter table tv_screens add column if not exists qr_mode text not null default 'play'`;
 
   return {
     async listWheels() {
@@ -233,11 +235,11 @@ export async function createPostgresStore(url: string): Promise<Store> {
       return rows[0] ? rowToTv(rows[0]) : null;
     },
     async insertTv(tv) {
-      await sql`insert into tv_screens (id, code, name, wheel_id, created_at, state)
-        values (${tv.id}, ${tv.code}, ${tv.name}, ${tv.wheelId}, ${tv.createdAt}, ${JSON.stringify(tv.state)}::jsonb)`;
+      await sql`insert into tv_screens (id, code, name, wheel_id, qr_mode, created_at, state)
+        values (${tv.id}, ${tv.code}, ${tv.name}, ${tv.wheelId}, ${tv.qrMode}, ${tv.createdAt}, ${JSON.stringify(tv.state)}::jsonb)`;
     },
     async updateTvMeta(id, m) {
-      await sql`update tv_screens set name = ${m.name}, wheel_id = ${m.wheelId} where id = ${id}`;
+      await sql`update tv_screens set name = ${m.name}, wheel_id = ${m.wheelId}, qr_mode = ${m.qrMode} where id = ${id}`;
     },
     async deleteTv(id) {
       await sql`delete from tv_screens where id = ${id}`;

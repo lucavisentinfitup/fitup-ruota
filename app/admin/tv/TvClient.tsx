@@ -13,6 +13,7 @@ interface TvRow {
   fps: number | null;
   userAgent: string | null;
   screen: string | null;
+  qrMode?: "play" | "rules";
   online: boolean;
   capable: boolean;
   session: { playerName: string | null; ackAt: number | null; lastActive: number } | null;
@@ -63,7 +64,7 @@ export default function TvClient({ wheels }: { wheels: { id: string; name: strin
     load();
   };
 
-  const update = async (t: TvRow, patch: Partial<Pick<TvRow, "name" | "wheelId">>) => {
+  const update = async (t: TvRow, patch: Partial<Pick<TvRow, "name" | "wheelId" | "qrMode">>) => {
     setTvs((list) => list?.map((x) => (x.id === t.id ? { ...x, ...patch } : x)) ?? null);
     await fetch(`/api/admin/tvs/${t.id}`, { method: "PUT", headers: { "content-type": "application/json" }, body: JSON.stringify(patch) });
   };
@@ -106,11 +107,11 @@ export default function TvClient({ wheels }: { wheels: { id: string; name: strin
       <div className="table-wrap" style={{ marginBottom: 18 }}>
         <table className="tbl">
           <thead>
-            <tr><th>Schermo</th><th>Stato</th><th>Ruota</th><th>Codice</th><th>Link da aprire sulla TV</th><th>TV rilevato</th><th className="num">Fluidità</th><th>Ultimo segnale</th><th /></tr>
+            <tr><th>Schermo</th><th>Stato</th><th>Ruota</th><th>Il QR apre</th><th>Codice</th><th>Link da aprire sulla TV</th><th>TV rilevato</th><th className="num">Fluidità</th><th>Ultimo segnale</th><th /></tr>
           </thead>
           <tbody>
-            {tvs === null && <tr><td colSpan={9} className="muted">Caricamento…</td></tr>}
-            {tvs?.length === 0 && <tr><td colSpan={9} className="muted">Nessuno schermo. Aggiungine uno qui sopra.</td></tr>}
+            {tvs === null && <tr><td colSpan={10} className="muted">Caricamento…</td></tr>}
+            {tvs?.length === 0 && <tr><td colSpan={10} className="muted">Nessuno schermo. Aggiungine uno qui sopra.</td></tr>}
             {tvs?.map((t) => {
               const url = `${origin}/tv/${t.code}`;
               return (
@@ -124,6 +125,13 @@ export default function TvClient({ wheels }: { wheels: { id: string; name: strin
                     <select className="input" style={{ padding: "6px 8px" }} value={t.wheelId ?? ""} onChange={(e) => update(t, { wheelId: e.target.value || null })}>
                       <option value="">Predefinita</option>
                       {wheels.map((w) => <option key={w.id} value={w.id}>{w.name}</option>)}
+                    </select>
+                  </td>
+                  <td>
+                    <select className="input" style={{ padding: "6px 8px" }} value={t.qrMode ?? "play"} onChange={(e) => update(t, { qrMode: e.target.value as "play" | "rules" })}
+                      title="Regolamento: il cliente legge come ottenere i giri (5 contatti = 1 giro) e gioca in reception">
+                      <option value="play">Il gioco</option>
+                      <option value="rules">Il regolamento</option>
                     </select>
                   </td>
                   <td><code style={{ fontSize: 16 }}>{t.code.slice(0, 3)} {t.code.slice(3)}</code></td>
@@ -150,7 +158,7 @@ export default function TvClient({ wheels }: { wheels: { id: string; name: strin
         <ol className="muted" style={{ margin: 0, paddingLeft: 20, lineHeight: 1.8 }}>
           <li><b style={{ color: "#fff" }}>Consigliato, zero telecomando:</b> collega alla TV una chiavetta HDMI (Android TV / Fire TV con un browser in modalità kiosk) impostata per aprire all’avvio il link qui sopra. Con HDMI-CEC attivo la TV si accende e passa all’ingresso giusto da sola.</li>
           <li><b style={{ color: "#fff" }}>Senza hardware aggiuntivo:</b> apri il link nel browser della TV (Hisense VIDAA: app “Browser”; Samsung: “Internet”) e lascialo aperto. In alternativa l’app web si può pubblicare negli store VIDAA / Samsung come indicato nella matrice TV.</li>
-          <li>Al primo avvio la TV fa un autotest di 2 secondi: se l’animazione non è fluida (sotto 24 fps) lo schermo risulta “Non fluida” e i clienti vedono il messaggio di cortesia e giocano solo sul telefono.</li>
+          <li>Al primo avvio la TV fa un autotest di 2 secondi: se l’animazione non è fluida (sotto 12 fps; tra 12 e 40 fps la grafica viene alleggerita in automatico) lo schermo risulta “Non fluida” e i clienti vedono il messaggio di cortesia e giocano solo sul telefono.</li>
         </ol>
       </section>
     </>

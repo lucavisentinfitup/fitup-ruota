@@ -152,5 +152,7 @@ export interface TvScreen {
   fps: number | null;
   userAgent: string | null;
   screen: string | null;
+  /** cosa apre il QR sulla TV: il gioco ("play") o il regolamento ("rules", si gioca in reception) */
+  qrMode: "play" | "rules";
   state: TvState;
 }

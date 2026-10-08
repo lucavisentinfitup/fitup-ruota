@@ -175,6 +175,7 @@ export async function createJsonStore(): Promise<Store> {
       await load();
       const t = data.tvs.find((x) => x.id === id);
       if (t) Object.assign(t, m);
+      data.tvs.forEach((x) => (x.qrMode ??= "play"));
       await save();
     },
     async deleteTv(id) {

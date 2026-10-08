@@ -32,6 +32,7 @@ export async function POST(req: Request) {
     fps: null,
     userAgent: null,
     screen: null,
+    qrMode: "play",
     state: emptyTvState(),
   };
   await (await db()).insertTv(tv);
