@@ -33,12 +33,19 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - [ ] Ricaricare le pagine TV già aperte nei club (o "ricarica" dal backend → Schermi TV) per avere la correzione dell'8/10.
 - [ ] Passare Vercel a piano **Pro** (uso commerciale).
 - [ ] Seregno: togliere la data di test 2026-10-08 e cancellare le giocate di prova dell'8/10.
+- [ ] Meccanica referral: decidere se estendere la modalità regolamento a tutti i club e come impedire le giocate libere dal link pubblico (es. giri abilitati solo dalla reception).
+- [ ] Facoltativo: bottone "Salva il risultato" sul telefono (immagine dell'esito con codice, da salvare/condividere).
 - [ ] Abbiategrasso e Caresanablot: aperti su CORE ma assenti dal calendario → ruote "sempre attive"; decidere se disattivarle o dare una data.
 - [ ] Verificare le date: con il calendario fornito il 19 e il 26 ottobre cadono di **lunedì**.
 - [ ] Facoltativo: `ABLY_API_KEY` per eventi TV in tempo reale (oggi polling).
 - [ ] Provare su TV reali (Hisense VIDAA U3.0 e Samsung Tizen) e su telefoni vecchi; test di carico prima del lancio.
 
 ## Diario sessioni (più recente in alto)
+**8/10/2026 – PC ufficio (Windows), sera**
+- TV fluidità: avviso "non fluida" solo sotto **12 fps** (`MIN_FPS` in `legacy/tv.ts`, `TV_MIN_FPS` in `lib/tv.ts`); tra 12 e 40 fps la TV gioca con grafica alleggerita (bitmap 900 px, niente layer di motion blur).
+- **Scollegamento automatico** 5 s dopo l'esito: lo fa la TV (DELETE `/api/tv/pair`) e anche il telefono (`Game.tsx`, `legacy/lite.ts`). Il cliente successivo può collegarsi subito.
+- **Modalità QR "regolamento"** per schermo (`tv_screens.qr_mode` = `play` | `rules`, scelta in backend → Schermi TV): il QR apre `/regolamento/<slug>` ("Gira i contatti e Gira la ruota!", 5 contatti = 1 giro, `lib/referral.ts`) e sopra al QR compare "Presenta 5 contatti e Gira la ruota in reception!". **Attiva solo su "Ufficio – TV di prova (ruota modello)" (431950)** per test.
+
 **8/10/2026 – PC ufficio (Windows), pomeriggio**
 - TV: QR e codice **sempre visibili**, spariscono solo durante il giro e il risultato. Con un giocatore collegato compare l'etichetta "Collegato: [nome] · gira dal telefono" sotto al codice (il vecchio pannello "Tocca a…" non si usa più).
 - Link corti per le TV: dominio `fitup-tv.vercel.app` (stesso progetto) + `app/[code]/route.ts` → `fitup-tv.vercel.app/440140` porta a `/tv/440140`. Colonna aggiunta in `LINK-RUOTE-FITUP.csv`.
