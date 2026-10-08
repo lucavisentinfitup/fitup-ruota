@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
-import { requireAdmin } from "@/lib/admin";
+import { requireGlobalAdmin } from "@/lib/admin";
 import { uid } from "@/lib/defaults";
 
 export const dynamic = "force-dynamic";
 const TYPES: Record<string, string> = { "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp", "image/svg+xml": "svg" };
 
 export async function POST(req: Request) {
-  const u = await requireAdmin();
+  const u = await requireGlobalAdmin();
   if (u instanceof NextResponse) return u;
   const file = (await req.formData()).get("file");
   if (!(file instanceof File)) return NextResponse.json({ error: "Nessun file" }, { status: 400 });

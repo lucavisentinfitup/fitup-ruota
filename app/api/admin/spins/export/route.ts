@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/admin";
+import { requireAdmin, scopeFilters } from "@/lib/admin";
 import { db } from "@/lib/db";
 import { parseFilters } from "@/lib/filters";
 import { formatRome, romeDay } from "@/lib/time";
@@ -15,7 +15,7 @@ const cell = (v: unknown) => {
 export async function GET(req: Request) {
   const u = await requireAdmin();
   if (u instanceof NextResponse) return u;
-  const spins = await (await db()).listSpins({ ...parseFilters(new URL(req.url)), limit: 50000, offset: 0 });
+  const spins = await (await db()).listSpins({ ...(await scopeFilters(u, parseFilters(new URL(req.url)))), limit: 50000, offset: 0 });
   const head = ["Data", "Ora", "Ruota", "Esito", "Tipo", "Giocatore", "Codice", "Consegnato il", "Consegnato da"];
   const rows = spins.map((s) =>
     [

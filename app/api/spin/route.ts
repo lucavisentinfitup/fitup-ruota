@@ -7,7 +7,7 @@ import { emitTv, normalizeCode, TV_SESSION_IDLE_MS } from "@/lib/tv";
 import { MOTION } from "@/components/wheel/motion";
 import type { Spin } from "@/lib/types";
 import { closedMessage, isOpenToday } from "@/lib/event";
-import { getAdmin } from "@/lib/admin";
+import { canTestWheel } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
 const DEVICE_COOKIE = "fu_dev";
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
 
   // fuori dal giorno dell'evento del club si gioca solo in prova (staff collegato), senza registrare
   const open = isOpenToday(wheel.event);
-  const test = !open && !!(await getAdmin());
+  const test = !open && (await canTestWheel(wheel));
   if (!open && !test) {
     return NextResponse.json({ error: closedMessage(wheel.event!), closed: true }, { status: 403 });
   }

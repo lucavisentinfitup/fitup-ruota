@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/admin";
+import { requireGlobalAdmin } from "@/lib/admin";
 import { db, emptyTvState } from "@/lib/db";
 import { uid } from "@/lib/defaults";
 import { newTvCode, tvStatus } from "@/lib/tv";
@@ -10,13 +10,13 @@ export const dynamic = "force-dynamic";
 const view = (t: TvScreen) => ({ ...t, state: undefined, session: t.state.session, ...tvStatus(t) });
 
 export async function GET() {
-  const u = await requireAdmin();
+  const u = await requireGlobalAdmin();
   if (u instanceof NextResponse) return u;
   return NextResponse.json((await (await db()).listTvs()).map(view));
 }
 
 export async function POST(req: Request) {
-  const u = await requireAdmin();
+  const u = await requireGlobalAdmin();
   if (u instanceof NextResponse) return u;
   const body = (await req.json().catch(() => ({}))) as { name?: string; wheelId?: string | null };
   const name = (body.name ?? "").trim().slice(0, 80);

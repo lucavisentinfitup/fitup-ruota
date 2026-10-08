@@ -317,6 +317,9 @@ table.tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
 .template-card .thumb { width: 170px; flex: 0 0 170px; pointer-events: none; }
 .template-body { flex: 1 1 320px; display: flex; flex-direction: column; gap: 10px; }
 .template-body h3 { font-size: 24px; }
+.club-link { display: flex; flex-direction: column; gap: 4px; }
+.club-link code { font-size: 15px; color: var(--green); overflow-wrap: anywhere; }
+.club-tv { display: flex; flex-direction: column; gap: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
 
 .game-titles .game-event { color: var(--green); font-family: var(--font-head); text-transform: uppercase; letter-spacing: .04em; font-size: 15px; margin-top: 12px; }
 .test-banner, .closed-banner { width: 100%; max-width: 520px; margin: 10px auto 0; padding: 10px 14px; border-radius: 10px; font-size: 14px; text-align: center; }

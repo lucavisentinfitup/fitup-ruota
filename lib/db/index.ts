@@ -24,7 +24,8 @@ export interface Store {
   countWinsBySegment(wheelId: string): Promise<Record<string, number>>;
   listSpins(f: SpinFilters): Promise<Spin[]>;
   reportSpins(f: SpinFilters): Promise<SpinReport>;
-  setRedeemed(id: string, redeemedBy: string | null): Promise<Spin | null>;
+  /** Con `onlyWheelId` aggiorna solo se la giocata è di quella ruota. */
+  setRedeemed(id: string, redeemedBy: string | null, onlyWheelId?: string): Promise<Spin | null>;
 
   listTvs(): Promise<TvScreen[]>;
   getTvByCode(code: string): Promise<TvScreen | null>;

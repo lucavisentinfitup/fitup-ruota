@@ -1,9 +1,12 @@
+import { redirect } from "next/navigation";
+import { getAdmin } from "@/lib/admin";
 import { db } from "@/lib/db";
 import TvClient from "./TvClient";
 
 export const dynamic = "force-dynamic";
 
 export default async function TvPage() {
+  if ((await getAdmin())?.role !== "global") redirect("/admin");
   const wheels = (await (await db()).listWheels()).map((w) => ({ id: w.id, name: w.name }));
   return (
     <>

@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
+import { accessFor } from "@/lib/access";
 
 export const ALLOWED_DOMAIN = (process.env.ALLOWED_DOMAIN || "fitup.it").toLowerCase();
 
@@ -21,7 +22,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     signIn({ account, profile }) {
       if (account?.provider !== "google" || !profile) return false;
       const hd = (profile as { hd?: string }).hd?.toLowerCase();
-      return profile.email_verified === true && isAllowedEmail(profile.email) && hd === ALLOWED_DOMAIN;
+      // solo gli amministratori e gli account dei club (lib/access.ts)
+      return profile.email_verified === true && isAllowedEmail(profile.email) && hd === ALLOWED_DOMAIN && !!accessFor(profile.email);
     },
   },
 });

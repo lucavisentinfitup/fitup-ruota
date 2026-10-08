@@ -16,7 +16,10 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - `legacy/tv.ts` (schermo TV), `legacy/lite.ts` (telefoni vecchi): compilati in ES5 da `scripts/build-legacy.mjs` (parte da solo con `npm run dev`/`build`).
 - `app/api/spin`: estrazione **lato server**, registra la giocata, sincronizza la TV (istante di frenata comune, spicchio identificato per ID, versione ruota).
 - `app/api/tv/*`, `lib/tv.ts`: abbinamento telefono↔TV (QR o codice 6 cifre), eventi via Ably (se `ABLY_API_KEY`) o polling, autotest fps (< 24 fps → TV "non fluida").
-- `app/admin/*`: ruote, editor, report, schermi TV. `lib/admin.ts`: accesso solo @fitup.it.
+- `app/admin/*`: ruote, editor, report, schermi TV. Accessi in `lib/access.ts` + `lib/admin.ts`:
+  - **amministratori** (elenco `GLOBAL_ADMINS`: Luca Visentin, Matteo Mosconi, Davide Trevisan, Alessandro Genova, Nicole Crea): tutto;
+  - **account del club** (email del club da CORE in `data/clubs.json`, es. seregno@fitup.it): solo "La mia ruota" (link gioco/TV, sola lettura, niente pesi) e "Giocate e premi" (storico + consegna, niente statistiche). Le API admin rispondono 403 e le giocate sono filtrate sulla ruota del club;
+  - ogni altro account @fitup.it è rifiutato al login. In locale `DEV_ADMIN_EMAIL=<email>` in `.env.local` simula un utente.
 - `lib/db/`: Postgres (produzione) o `.data/db.json` (sviluppo locale senza `DATABASE_URL`).
 - `lib/event.ts`: calendario evento per ruota (si gioca solo nei giorni dell'evento; lo staff loggato gioca "in prova", non registrato).
 
@@ -29,6 +32,8 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 
 ## Da fare / aperti (aggiornare questa lista)
 - [x] **Login backend:** ID client OAuth "fitup-ruota Vercel" (progetto Google Cloud "FitUP Ruota", consenso Interno) creato l'8/10/2026; `AUTH_GOOGLE_ID` e `AUTH_GOOGLE_SECRET` su Vercel (Production).
+- [ ] **Carini** non ha l'email su CORE: senza, il club non può entrare nel backend (aggiungerla su CORE e in `data/clubs.json`).
+- [ ] Verificare che le email dei club siano account Google veri (non gruppi/alias), altrimenti il login non funziona.
 - [ ] Confermare che l'accesso a `/admin` con un account @fitup.it vada a buon fine (il redirect verso Google è verificato, il login completo no).
 - [ ] Ricaricare le pagine TV già aperte nei club (o "ricarica" dal backend → Schermi TV) per avere la correzione dell'8/10.
 - [ ] Passare Vercel a piano **Pro** (uso commerciale).
@@ -41,6 +46,9 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - [ ] Provare su TV reali (Hisense VIDAA U3.0 e Samsung Tizen) e su telefoni vecchi; test di carico prima del lancio.
 
 ## Diario sessioni (più recente in alto)
+**8/10/2026 – PC ufficio (Windows), accessi**
+- Backend a due livelli: 5 amministratori con accesso completo, account dei club limitati alla propria ruota (link + giocate/consegne). Email club prese da CORE (85/86, manca Carini). Guida PDF aggiornata di conseguenza.
+
 **8/10/2026 – PC ufficio (Windows), guida club**
 - Guida PDF per i club: `docs/Guida-Ruota-FitUP-club.pdf` (10 pagine + elenco link). Sorgente `docs/guida/template.html` + schermate; rigenerare con `node scripts/build-guida.mjs` (usa Edge/Chrome headless, legge `LINK-RUOTE-FITUP.csv`).
 

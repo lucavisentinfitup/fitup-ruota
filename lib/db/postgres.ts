@@ -219,10 +219,11 @@ export async function createPostgresStore(url: string): Promise<Store> {
         byWheel: perWheel as SpinReport["byWheel"],
       };
     },
-    async setRedeemed(id, by) {
+    async setRedeemed(id, by, onlyWheelId) {
+      const w = onlyWheelId ?? null;
       const rows = by
-        ? await sql`update spins set redeemed_at = now(), redeemed_by = ${by} where id = ${id} returning *`
-        : await sql`update spins set redeemed_at = null, redeemed_by = null where id = ${id} returning *`;
+        ? await sql`update spins set redeemed_at = now(), redeemed_by = ${by} where id = ${id} and (${w}::text is null or wheel_id = ${w}) returning *`
+        : await sql`update spins set redeemed_at = null, redeemed_by = null where id = ${id} and (${w}::text is null or wheel_id = ${w}) returning *`;
       return rows[0] ? rowToSpin(rows[0]) : null;
     },
 

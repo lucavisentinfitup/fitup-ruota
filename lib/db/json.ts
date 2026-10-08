@@ -147,9 +147,9 @@ export async function createJsonStore(): Promise<Store> {
         byWheel: [...byWheel.values()].sort((a, b) => b.n - a.n),
       };
     },
-    async setRedeemed(id, by) {
+    async setRedeemed(id, by, onlyWheelId) {
       await load();
-      const s = data.spins.find((x) => x.id === id);
+      const s = data.spins.find((x) => x.id === id && (!onlyWheelId || x.wheelId === onlyWheelId));
       if (!s) return null;
       s.redeemedAt = by ? new Date().toISOString() : null;
       s.redeemedBy = by;

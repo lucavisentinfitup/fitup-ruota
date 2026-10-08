@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/admin";
+import { requireGlobalAdmin } from "@/lib/admin";
 import { db, invalidateWheelCache } from "@/lib/db";
 import { slugify, uid } from "@/lib/defaults";
 import clubsFile from "@/data/clubs.json";
@@ -28,7 +28,7 @@ function eventFor(club: string): WheelEvent | null {
  *   lasciando invariati nome, indirizzo, club ed evento.
  */
 export async function POST(req: Request) {
-  const u = await requireAdmin();
+  const u = await requireGlobalAdmin();
   if (u instanceof NextResponse) return u;
   const body = (await req.json().catch(() => ({}))) as { applyTemplate?: boolean };
   const store = await db();

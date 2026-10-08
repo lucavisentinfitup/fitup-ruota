@@ -28,7 +28,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
         {error && (
           <div className="alert">
             {error === "AccessDenied"
-              ? `Accesso negato: sono ammessi solo gli account @${ALLOWED_DOMAIN}.`
+              ? `Accesso negato: questo account non è abilitato. Entra con l'account del club (es. seregno@${ALLOWED_DOMAIN}) o con un account amministratore.`
               : "Accesso non riuscito. Riprova."}
           </div>
         )}

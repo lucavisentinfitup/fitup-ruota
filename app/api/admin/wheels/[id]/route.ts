@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/admin";
+import { requireGlobalAdmin } from "@/lib/admin";
 import { db, invalidateWheelCache } from "@/lib/db";
 import { sanitizeWheel } from "@/lib/defaults";
 import type { Wheel } from "@/lib/types";
@@ -8,14 +8,14 @@ export const dynamic = "force-dynamic";
 type Ctx = { params: Promise<{ id: string }> };
 
 export async function GET(_: Request, { params }: Ctx) {
-  const u = await requireAdmin();
+  const u = await requireGlobalAdmin();
   if (u instanceof NextResponse) return u;
   const w = await (await db()).getWheel((await params).id);
   return w ? NextResponse.json(w) : NextResponse.json({ error: "Non trovata" }, { status: 404 });
 }
 
 export async function PUT(req: Request, { params }: Ctx) {
-  const u = await requireAdmin();
+  const u = await requireGlobalAdmin();
   if (u instanceof NextResponse) return u;
   const { id } = await params;
   const store = await db();
@@ -41,7 +41,7 @@ export async function PUT(req: Request, { params }: Ctx) {
 }
 
 export async function DELETE(_: Request, { params }: Ctx) {
-  const u = await requireAdmin();
+  const u = await requireGlobalAdmin();
   if (u instanceof NextResponse) return u;
   const { id } = await params;
   const store = await db();

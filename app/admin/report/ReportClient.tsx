@@ -7,7 +7,8 @@ import type { Spin, SpinReport } from "@/lib/types";
 const KIND_LABEL = { premio: "Premio", penitenza: "Penitenza", neutro: "Neutro" } as const;
 const PAGE = 100;
 
-export default function ReportClient({ wheels, initialWheelId }: { wheels: { id: string; name: string }[]; initialWheelId: string }) {
+/** `club`: vista per l'account di un club, solo elenco giocate e consegna premi (niente statistiche). */
+export default function ReportClient({ wheels, initialWheelId, club = false }: { wheels: { id: string; name: string }[]; initialWheelId: string; club?: boolean }) {
   const today = romeDay(new Date());
   const [f, setF] = useState({ from: addDays(today, -29), to: today, wheelId: initialWheelId, kind: "", q: "" });
   const [onlyToRedeem, setOnlyToRedeem] = useState(false);
@@ -20,10 +21,11 @@ export default function ReportClient({ wheels, initialWheelId }: { wheels: { id:
   const listQs = qs + (onlyToRedeem ? "&toRedeem=1" : "");
 
   const loadReport = useCallback(async () => {
+    if (club) return;
     const res = await fetch(`/api/admin/report?${qs}`);
     if (!res.ok) return setErr("Impossibile caricare i dati");
     setReport(await res.json());
-  }, [qs]);
+  }, [qs, club]);
 
   const loadPage = useCallback(
     async (offset: number) => {
@@ -94,12 +96,12 @@ export default function ReportClient({ wheels, initialWheelId }: { wheels: { id:
       <div className="filters">
         <label className="field">Dal<input className="input" type="date" value={f.from} max={f.to} onChange={up("from")} /></label>
         <label className="field">Al<input className="input" type="date" value={f.to} min={f.from} onChange={up("to")} /></label>
-        <label className="field">Ruota
+        {!club && <label className="field">Ruota
           <select className="input" value={f.wheelId} onChange={up("wheelId")}>
             <option value="">Tutte</option>
             {wheels.map((w) => <option key={w.id} value={w.id}>{w.name}</option>)}
           </select>
-        </label>
+        </label>}
         <label className="field">Esito
           <select className="input" value={f.kind} onChange={up("kind")}>
             <option value="">Tutti</option>
@@ -117,6 +119,7 @@ export default function ReportClient({ wheels, initialWheelId }: { wheels: { id:
 
       {err && <div className="alert" style={{ marginBottom: 16 }}>{err}</div>}
 
+      {!club && <>
       <div className="kpis">
         <div className="kpi"><span>Giocate</span><strong>{stats.total}</strong></div>
         <div className="kpi"><span>Premi vinti</span><strong style={{ color: "var(--green)" }}>{stats.prizes}</strong></div>
@@ -169,7 +172,9 @@ export default function ReportClient({ wheels, initialWheelId }: { wheels: { id:
         </section>
       </div>
 
-      {!f.wheelId && (
+      </>}
+
+      {!club && !f.wheelId && (
         <section className="panel" style={{ marginBottom: 18 }}>
           <h2>Giocate per club</h2>
           <div className="table-wrap" style={{ maxHeight: 320, border: 0 }}>
@@ -204,7 +209,7 @@ export default function ReportClient({ wheels, initialWheelId }: { wheels: { id:
         <div className="table-wrap" style={{ maxHeight: "70vh" }}>
           <table className="tbl">
             <thead>
-              <tr><th>Giorno</th><th>Ora</th><th>Giocatore</th><th>Esito</th><th>Tipo</th><th>Codice</th><th>Ruota</th><th>Consegna</th></tr>
+              <tr><th>Giorno</th><th>Ora</th><th>Giocatore</th><th>Esito</th><th>Tipo</th><th>Codice</th>{!club && <th>Ruota</th>}<th>Consegna</th></tr>
             </thead>
             <tbody>
               {spins === null && <tr><td colSpan={8} className="muted">Caricamento…</td></tr>}
@@ -216,7 +221,7 @@ export default function ReportClient({ wheels, initialWheelId }: { wheels: { id:
                   <td>{s.segmentLabel}</td>
                   <td><span className={`badge ${s.kind === "premio" ? "badge-green" : ""}`}>{KIND_LABEL[s.kind]}</span></td>
                   <td><code>{s.code}</code></td>
-                  <td className="muted">{s.wheelName}</td>
+                  {!club && <td className="muted">{s.wheelName}</td>}
                   <td>
                     {s.kind === "premio" ? (
                       <label className="check small" title={s.redeemedAt ? `Consegnato il ${formatRome(s.redeemedAt)} da ${s.redeemedBy}` : "Segna come consegnato"}>

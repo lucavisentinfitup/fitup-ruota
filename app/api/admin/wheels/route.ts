@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/admin";
+import { requireGlobalAdmin } from "@/lib/admin";
 import { db, invalidateWheelCache } from "@/lib/db";
 import { defaultWheel, sanitizeWheel, slugify, uid } from "@/lib/defaults";
 import type { Wheel } from "@/lib/types";
@@ -7,14 +7,14 @@ import type { Wheel } from "@/lib/types";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const u = await requireAdmin();
+  const u = await requireGlobalAdmin();
   if (u instanceof NextResponse) return u;
   return NextResponse.json(await (await db()).listWheels());
 }
 
 /** Crea una ruota nuova (dai default FitUP) o duplica `fromId`. */
 export async function POST(req: Request) {
-  const u = await requireAdmin();
+  const u = await requireGlobalAdmin();
   if (u instanceof NextResponse) return u;
   const body = (await req.json().catch(() => ({}))) as { name?: string; fromId?: string };
   const store = await db();

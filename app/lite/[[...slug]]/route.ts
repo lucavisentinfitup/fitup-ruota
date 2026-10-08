@@ -4,7 +4,7 @@ import { toPublicWheel } from "@/lib/defaults";
 import { romeDay, romeMidnight } from "@/lib/time";
 import { TV_BUILD } from "@/lib/tv-build";
 import { closedMessage, eventText, isOpenToday } from "@/lib/event";
-import { getAdmin } from "@/lib/admin";
+import { canTestWheel } from "@/lib/admin";
 
 export const dynamic = "force-dynamic";
 
@@ -30,7 +30,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ slug?: str
   }
   // JSON dentro <script>: niente "</script>" possibile
   const open = isOpenToday(wheel.event);
-  const test = !open && !!(await getAdmin());
+  const test = !open && (await canTestWheel(wheel));
   const data = JSON.stringify({
     wheel: toPublicWheel(wheel),
     remaining,

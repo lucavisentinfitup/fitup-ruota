@@ -5,7 +5,7 @@ import { romeDay, romeMidnight } from "@/lib/time";
 import type { Wheel } from "@/lib/types";
 import Game from "./Game";
 import { closedMessage, isOpenToday } from "@/lib/event";
-import { getAdmin } from "@/lib/admin";
+import { canTestWheel } from "@/lib/admin";
 
 export async function GamePage({ wheel }: { wheel: Wheel | null }) {
   if (!wheel || !wheel.active) {
@@ -28,6 +28,6 @@ export async function GamePage({ wheel }: { wheel: Wheel | null }) {
   }
   const open = isOpenToday(wheel.event);
   // fuori calendario: lo staff collegato al backend può provare (giocate non registrate)
-  const test = !open && !!(await getAdmin());
+  const test = !open && (await canTestWheel(wheel));
   return <Game wheel={toPublicWheel(wheel)} remaining={remaining} closed={open || test ? null : closedMessage(wheel.event!)} test={test} />;
 }

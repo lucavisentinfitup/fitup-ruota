@@ -15,7 +15,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <Link href="/admin">
           <img src="/brand/fitup-logo.png" alt="FitUP" />
         </Link>
-        <AdminNavLinks />
+        <AdminNavLinks club={user.role === "club"} />
         <div className="who">
           {devBypass() && <span className="badge badge-red">Modalità sviluppo</span>}
           <span>{user.email}</span>

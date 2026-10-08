@@ -116,12 +116,12 @@
   <ul class="dots">
     <li>Una <b>TV con browser internet</b> collegata alla rete del club (smart TV Samsung, Hisense, LG…). <b>Se la TV non ha internet</b>, va bene anche un <b>tablet</b> o un <b>PC/notebook</b> esposto in reception, oppure collegato alla TV con il cavo HDMI.</li>
     <li>La <b>connessione internet</b> per la TV. I clienti usano i propri dati mobili (4G/5G) o il Wi-Fi del club.</li>
-    <li>Un <b>account Google @fitup.it</b> per la reception: serve per entrare nel backend, controllare i codici e segnare i premi consegnati.</li>
+    <li>L'<b>account Google del club</b> (es. seregno@fitup.it) per la reception: serve per entrare nel backend, vedere i link del club, controllare i codici e segnare i premi consegnati.</li>
     <li>I <b>premi fisici</b> della ruota pronti in reception (vedi elenco nel capitolo 4).</li>
   </ul>
 
   <h3>I link del tuo club</h3>
-  <p>Ogni club ha due link e un codice. Li trovi tutti nell'<b>elenco in fondo alla guida</b>.</p>
+  <p>Ogni club ha due link e un codice. Li trovi nel backend (sezione <b>La mia ruota</b>) e nell'<b>elenco in fondo alla guida</b>.</p>
   <div class="grid2">
     <div class="card dark">
       <span class="tag">Da aprire sulla TV</span>
@@ -161,7 +161,7 @@
 
   <div class="note"><b>TV senza internet: tablet o PC</b>Se la TV non è smart o non ha internet, apri lo stesso link su un <b>tablet</b> (Chrome o Safari, in orizzontale) o su un <b>PC/notebook</b> (Chrome o Edge, tasto F11 per lo schermo intero). Puoi esporlo così in reception oppure collegare il PC alla TV con un cavo HDMI. Tieni il dispositivo in carica e disattiva il blocco schermo automatico. Funziona tutto come sulla TV: QR, codice e ruota sincronizzata.</div>
 
-  <div class="note"><b>Come fare una prova prima dell'evento</b>Fuori dai giorni dell'evento la ruota è chiusa al pubblico. Per provarla, apri il backend <span class="mono">fitup-ruota.vercel.app/admin</span> con l'account Google @fitup.it <b>sullo stesso telefono</b>, poi inquadra il QR della TV. Comparirà la scritta “Modalità prova staff”: puoi girare quanto vuoi, le giocate non vengono registrate e il codice mostrato è “PROVA”.</div>
+  <div class="note"><b>Come fare una prova prima dell'evento</b>Fuori dai giorni dell'evento la ruota è chiusa al pubblico. Per provarla, apri il backend <span class="mono">fitup-ruota.vercel.app/admin</span> con l'account Google del club <b>sullo stesso telefono</b>, poi inquadra il QR della TV. Comparirà la scritta “Modalità prova staff”: puoi girare quanto vuoi, le giocate non vengono registrate e il codice mostrato è “PROVA”.</div>
 
 </section>
 
@@ -224,13 +224,13 @@
   <div class="grid2" style="grid-template-columns: 1fr 1.2fr; align-items: start;">
     <ol class="steps">
       <li><b>Guarda il codice sul telefono</b>Schermata “Hai vinto!” con il premio e il codice giocata.</li>
-      <li><b>Apri il backend</b><span class="mono">fitup-ruota.vercel.app/admin</span> → <b>Report vincite</b>, con l'account Google @fitup.it.</li>
+      <li><b>Apri il backend</b><span class="mono">fitup-ruota.vercel.app/admin</span> → <b>Giocate e premi</b>, con l'account Google del club.</li>
       <li><b>Cerca il codice</b>Nel campo “Cerca giocatore o codice”. Verifica premio, giorno e club.</li>
       <li><b>Consegna e spunta</b>Consegna il premio e spunta la casella nella colonna <b>Consegna</b>: restano salvati data, ora e chi l'ha consegnato.</li>
     </ol>
     <figure>
       <img src="report-crop.png" alt="">
-      <figcaption>Report vincite → Elenco giocate. “Solo premi da consegnare” mostra le vincite ancora da ritirare; “Scarica Excel (CSV)” esporta tutto.</figcaption>
+      <figcaption>Giocate e premi → Elenco giocate. “Solo premi da consegnare” mostra le vincite ancora da ritirare; “Scarica Excel (CSV)” esporta tutto.</figcaption>
     </figure>
   </div>
 
@@ -249,7 +249,7 @@
       <tr><td>La ruota sembra un po' meno definita</td><td>È normale sulle TV meno potenti: lo schermo alleggerisce la grafica da solo per restare fluido.</td></tr>
       <tr><td>Pagina bianca o che non si carica</td><td>Controlla la connessione internet della TV, poi ricarica la pagina. Se il browser della TV è molto vecchio, usa un PC via HDMI.</td></tr>
           <tr><td>La TV mostra “Collegato: [nome] · gira dal telefono”</td><td>Un cliente è collegato ma non ha ancora girato. Dopo 60 secondi la TV torna libera da sola; un nuovo cliente può comunque inquadrare il QR.</td></tr>
-      <tr><td>La pagina della TV si è bloccata o è vecchia</td><td>Ricaricarla (tasto aggiorna del browser). Dal backend → Schermi TV si vede se la TV è in linea e quanto è fluida.</td></tr>
+      <tr><td>La pagina della TV si è bloccata o è vecchia</td><td>Ricaricarla (tasto aggiorna del browser). Se il problema resta, avvisa la sede.</td></tr>
     </tbody>
   </table>
   <table class="faq" style="margin-top:5mm">
@@ -259,9 +259,9 @@
       <tr><td>“Codice non trovato: controlla le 6 cifre sulla TV”</td><td>Il cliente ha sbagliato il codice. Meglio inquadrare il QR.</td></tr>
       <tr><td>“La TV è occupata da un altro giocatore”</td><td>Un altro cliente sta girando. Aspettare qualche secondo e riprovare.</td></tr>
       <tr><td>Il QR apre il gioco ma la TV non gira</td><td>Ricaricare la pagina della TV e far inquadrare di nuovo il QR. In alternativa il cliente gioca sul telefono: l'esito vale uguale.</td></tr>
-      <tr><td>Il cliente ha chiuso la pagina prima di vedere il codice</td><td>Cercare nel Report vincite per nome, ora o club e verificare l'ultima giocata.</td></tr>
+      <tr><td>Il cliente ha chiuso la pagina prima di vedere il codice</td><td>Cercare in Giocate e premi per nome o ora e verificare l'ultima giocata.</td></tr>
       <tr><td>Nessun suono sul telefono</td><td>Controllare il tasto altoparlante in alto a destra nel gioco e il volume/silenzioso del telefono.</td></tr>
-      <tr><td>Non riesco a entrare nel backend</td><td>Serve un account Google <b>@fitup.it</b>: gli account personali (gmail ecc.) non sono ammessi.</td></tr>
+      <tr><td>Non riesco a entrare nel backend</td><td>Serve l'<b>account Google del club</b> (es. seregno@fitup.it): gli altri account, compresi quelli personali, non sono abilitati.</td></tr>
     </tbody>
   </table>
 
@@ -279,7 +279,7 @@
         <li>Link aperto sul browser della TV, a schermo intero</li>
         <li>Prova staff fatta: la ruota gira su telefono e TV</li>
         <li>Salvaschermo e spegnimento automatico della TV disattivati</li>
-        <li>Accesso al backend @fitup.it verificato in reception</li>
+        <li>Accesso al backend con l'account del club verificato in reception</li>
       </ul>
     </div>
     <div class="card soft">
@@ -287,7 +287,7 @@
       <ul class="check">
         <li>TV accesa sulla ruota, pagina ricaricata in mattinata</li>
         <li>Premi pronti in reception</li>
-        <li>Backend aperto su Report vincite, filtro “Oggi”</li>
+        <li>Backend aperto su Giocate e premi, filtro “Oggi”</li>
         <li>Staff pronto a spiegare: “Inquadra il QR e gira!”</li>
         <li>A fine giornata: tutti i premi consegnati spuntati</li>
       </ul>
