@@ -159,8 +159,11 @@ var pairedShownAt = 0;
 function panel(name: "idle" | "paired" | "spin" | "result") {
   if (name === "paired" && currentPanel !== "paired") pairedShownAt = Date.now();
   currentPanel = name;
-  show("panel-idle", name === "idle");
-  show("panel-paired", name === "paired");
+  // QR e codice restano sempre visibili: spariscono solo durante il giro e il risultato.
+  // Con un giocatore collegato compare solo un'etichetta sotto al codice.
+  show("panel-idle", name === "idle" || name === "paired");
+  show("paired-note", name === "paired");
+  show("panel-paired", false);
   show("panel-spin", name === "spin");
   show("panel-result", name === "result");
 }
@@ -179,6 +182,7 @@ function handle(rec: EventRec) {
     freshPair = true;
     xhr("POST", api + "/ack", { sessionId: ev.sessionId }, function () {});
     $("player").innerHTML = playerLabel(ev.playerName);
+    $("player-note").innerHTML = ev.playerName ? escapeHtml(ev.playerName) : "un giocatore";
     if (W.phase !== "result" && W.phase !== "accel" && W.phase !== "cruise" && W.phase !== "decel") panel("paired");
     return;
   }
@@ -279,6 +283,7 @@ function poll() {
           freshPair = true;
           xhr("POST", api + "/ack", { sessionId: d.session.id }, function () {});
           $("player").innerHTML = playerLabel(d.session.playerName);
+          $("player-note").innerHTML = d.session.playerName ? escapeHtml(d.session.playerName) : "un giocatore";
           if (W.phase === "idle") panel("paired");
         }
       } else for (var i = 0; i < d.events.length; i++) handle(d.events[i]);

@@ -44,6 +44,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ code: stri
         <p class="txt">Apri la fotocamera del telefono: la ruota gira qui e sul tuo schermo.</p>
       </div>
       <div class="codebox"><p>Oppure, dal gioco sul telefono, tocca “Guarda sulla TV” e inserisci il codice:</p><div id="code"></div></div>
+      <div id="paired-note" class="paired-note hidden"><span class="dot"></span>Collegato: <b id="player-note"></b> · gira dal telefono</div>
     </div>
     <div id="panel-paired" class="panel hidden">
       <p class="kicker">Tocca a</p>
