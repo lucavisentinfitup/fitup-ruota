@@ -20,6 +20,7 @@ const strip = (f) =>
   `// ---- ${f}\n` +
   fs
     .readFileSync(path.join(root, f), "utf8")
+    .replace(/\r\n/g, "\n")
     .replace(/^import\s[^;]*;\s*$/gm, "")
     .replace(/^export\s+(?=(const|let|var|function|interface|type|class)\b)/gm, "");
 
@@ -37,7 +38,8 @@ for (const b of bundles) {
   }
   fs.mkdirSync(path.dirname(path.join(root, b.out)), { recursive: true });
   fs.writeFileSync(path.join(root, b.out), js);
-  hash.update(js).update(fs.readFileSync(path.join(root, b.css)));
+  // fine riga normalizzati: Windows (CRLF) e Mac (LF) devono dare la stessa impronta
+  hash.update(js).update(fs.readFileSync(path.join(root, b.css), "utf8").replace(/\r\n/g, "\n"));
   console.log(`${b.out}: ES5 ok (${(js.length / 1024).toFixed(1)} KB)`);
 }
 const build = hash.digest("hex").slice(0, 10);

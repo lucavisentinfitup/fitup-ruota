@@ -38,6 +38,10 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - [ ] Provare su TV reali (Hisense VIDAA U3.0 e Samsung Tizen) e su telefoni vecchi; test di carico prima del lancio.
 
 ## Diario sessioni (più recente in alto)
+**8/10/2026 – PC ufficio (Windows)**
+- Allineato con il Mac (`git pull`): verificati online login Google (client_id presente, redirect corretto) e correzione TV.
+- `scripts/build-legacy.mjs`: fine riga normalizzati, così Windows (CRLF) e Mac (LF) danno la stessa impronta `TV_BUILD` e non compaiono modifiche fantasma.
+
 **8/10/2026 – Mac mini (casa)**
 - Repo clonato in `~/Desktop/fitup-ruota`, CLI Vercel collegata, credenziali GitHub nel Portachiavi. Il connettore MCP Vercel di Claude non ha accesso al team (403): usare `npx vercel@latest`.
 - Login Google del backend configurato e pubblicato (vedi lista sopra).
