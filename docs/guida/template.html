@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Ruota della Fortuna FitUP – Guida per i club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600&display=block" rel="stylesheet">
+<style>
+  :root { --green: #94C424; --black: #0d0d0d; --ink: #1d1d1b; --muted: #5f6368; --line: #e3e5e8; --soft: #f4f7ec; }
+  @page { size: A4; margin: 16mm 15mm 18mm; @bottom-left { content: "Ruota della Fortuna FitUP · Guida per i club · Promo Ottobre 2026"; font: 7.5pt Poppins, sans-serif; color: #8a8f94; } @bottom-right { content: counter(page); font: 600 8pt Poppins, sans-serif; color: #8a8f94; } }
+  @page cover { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font: 9.2pt/1.45 Poppins, Arial, sans-serif; color: var(--ink); background: #fff; }
+  h1, h2, h3, .oswald { font-family: Oswald, "Arial Narrow", sans-serif; text-transform: uppercase; letter-spacing: .01em; line-height: 1.1; }
+  h2 { font-size: 22pt; margin: 0 0 3mm; }
+  h2 .n { display: inline-block; min-width: 11mm; color: var(--green); }
+  h2 + .lead { margin-top: 0; }
+  h3 { font-size: 12pt; margin: 6mm 0 2mm; }
+  .lead { font-size: 10.5pt; color: var(--muted); margin: 0 0 6mm; max-width: 165mm; }
+  .bar { width: 18mm; height: 1.4mm; background: var(--green); border-radius: 1mm; margin: 0 0 5mm; }
+  p { margin: 0 0 2.5mm; }
+  b, strong { font-weight: 600; }
+  .page { break-after: page; }
+  .mono { font-family: Consolas, "Courier New", monospace; }
+  .small { font-size: 7.4pt; }
+  a { color: inherit; text-decoration: none; }
+
+  /* copertina */
+  .cover { page: cover; height: 297mm; background: radial-gradient(120% 80% at 80% 15%, #1e2a08 0%, #0d0d0d 55%) #0d0d0d; color: #fff; padding: 22mm 18mm; position: relative; overflow: hidden; }
+  .cover .logo { width: 62mm; display: block; }
+  .cover .kicker { margin-top: 44mm; color: var(--green); font: 600 12pt Oswald, sans-serif; text-transform: uppercase; letter-spacing: .12em; }
+  .cover h1 { font-size: 46pt; margin: 3mm 0 0; }
+  .cover h1 span { color: var(--green); text-transform: none; }
+  .cover .sub { font-size: 13pt; color: #cfd3d6; margin-top: 6mm; max-width: 120mm; }
+  .cover .shot { position: absolute; left: 18mm; right: 18mm; bottom: 34mm; border-radius: 4mm; border: .6mm solid #2b2f22; width: calc(100% - 36mm); }
+  .cover .foot { position: absolute; left: 18mm; bottom: 16mm; font-size: 8.5pt; color: #8a8f94; }
+
+  /* blocchi */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .card { border: .3mm solid var(--line); border-radius: 3mm; padding: 4mm 4.5mm; break-inside: avoid; }
+  .card h3 { margin-top: 0; }
+  .card.dark { background: var(--black); color: #fff; border-color: var(--black); }
+  .card.soft { background: var(--soft); border-color: #dfe9c6; }
+  .tag { display: inline-block; font: 600 7.5pt Oswald, sans-serif; text-transform: uppercase; letter-spacing: .08em; color: var(--green); margin-bottom: 1.5mm; }
+  .card.dark .muted { color: #b9bec2; }
+  .muted { color: var(--muted); }
+  .link { font: 600 11pt Consolas, monospace; color: var(--black); background: #fff; border: .3mm solid var(--line); border-radius: 2mm; padding: 1.5mm 2.5mm; display: inline-block; margin: 1mm 0; }
+  .card.dark .link { background: #1b1b1b; color: var(--green); border-color: #333; }
+
+  ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+  ol.steps > li { counter-increment: s; position: relative; padding: 0 0 3.2mm 11mm; break-inside: avoid; }
+  ol.steps > li::before { content: counter(s); position: absolute; left: 0; top: -.3mm; width: 7.5mm; height: 7.5mm; border-radius: 50%; background: var(--green); color: var(--black); font: 700 10pt/7.5mm Oswald, sans-serif; text-align: center; }
+  ol.steps > li b:first-child { display: block; font-size: 10.2pt; }
+  ul.dots { margin: 0; padding-left: 4.5mm; }
+  ul.dots li { margin-bottom: 1.4mm; }
+  ul.dots li::marker { color: var(--green); }
+
+  .note { border-left: 1.4mm solid var(--green); background: var(--soft); padding: 3mm 4mm; border-radius: 0 2.5mm 2.5mm 0; margin: 4mm 0; break-inside: avoid; }
+  .warn { border-left-color: #e0a100; background: #fff7e0; }
+  .note b:first-child { display: block; font: 600 9pt Oswald, sans-serif; text-transform: uppercase; letter-spacing: .05em; margin-bottom: .8mm; }
+
+  figure { margin: 0; break-inside: avoid; }
+  figure img { width: 100%; display: block; border-radius: 2.5mm; border: .3mm solid #2a2a2a; }
+  figcaption { font-size: 7.8pt; color: var(--muted); margin-top: 1.6mm; }
+  .phones { display: grid; grid-template-columns: repeat(3, 38mm); justify-content: space-between; gap: 5mm; margin: 0 14mm; }
+  .phones img { border-radius: 4mm; border: .8mm solid #222; }
+  .crop { overflow: hidden; border-radius: 2.5mm; border: .3mm solid #2a2a2a; height: 62mm; }
+  .crop img { border: 0; border-radius: 0; margin-top: -24mm; }
+
+  table { width: 100%; border-collapse: collapse; }
+  .faq td { padding: 2.4mm 2.5mm; border-bottom: .3mm solid var(--line); vertical-align: top; }
+  .faq td:first-child { width: 40%; font-weight: 600; }
+  .faq tr { break-inside: avoid; }
+  .faq thead td { font: 600 8pt Oswald, sans-serif; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border-bottom: .5mm solid var(--black); }
+  .clubs { font-size: 7.2pt; table-layout: fixed; }
+  .clubs td { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .clubs td.small { font-size: 6.4pt; }
+  .clubs th { text-align: left; font: 600 7.5pt Oswald, sans-serif; text-transform: uppercase; letter-spacing: .05em; background: var(--black); color: #fff; padding: 1.8mm 2mm; }
+  .clubs td { padding: 1.05mm 1.6mm; border-bottom: .25mm solid var(--line); }
+  .clubs tr:nth-child(even) td { background: #f7f8f9; }
+  .clubs tr { break-inside: avoid; }
+  .clubs thead { display: table-header-group; }
+
+  .check { list-style: none; padding: 0; margin: 0; }
+  .check li { padding: 1.3mm 0 1.3mm 8mm; position: relative; border-bottom: .25mm dashed var(--line); }
+  .check li::before { content: ""; position: absolute; left: 0; top: 1.9mm; width: 4mm; height: 4mm; border: .45mm solid var(--black); border-radius: 1mm; }
+</style>
+</head>
+<body>
+
+<!-- COPERTINA -->
+<section class="cover page">
+  <img class="logo" src="../../public/brand/fitup-logo.png" alt="FitUP">
+  <div class="kicker">Promo Ottobre 2026 · Guida operativa</div>
+  <h1>Ruota della<br>Fortuna <span>FitUP</span></h1>
+  <p class="sub">Tutto quello che serve allo staff del club: preparare la TV, far giocare i clienti, consegnare i premi.</p>
+  <img class="shot" src="tv.png" alt="">
+  <div class="foot">Per il personale dei club FitUP · uso interno</div>
+</section>
+
+<!-- 1. IN BREVE -->
+<section class="page">
+  <h2><span class="n">1</span>La ruota in breve</h2>
+  <div class="bar"></div>
+  <p class="lead">Durante l'evento del club (Open Day o Compleanno) i clienti girano la Ruota della Fortuna FitUP dal proprio telefono. La ruota gira anche sulla TV del club e si ferma su un <b>premio</b> o su una <b>penitenza</b>. Chi vince mostra un codice in reception e ritira il premio.</p>
+
+  <div class="grid3">
+    <div class="card soft"><span class="tag">Prima dell'evento</span><h3>Preparare la TV</h3><p>Aprire il link dello schermo sul browser della TV e fare una prova. <b>Capitolo 2</b></p></div>
+    <div class="card soft"><span class="tag">Il giorno dell'evento</span><h3>Far giocare</h3><p>Il cliente inquadra il QR sulla TV e gira la ruota dal telefono. <b>Capitolo 3</b></p></div>
+    <div class="card soft"><span class="tag">Subito dopo il giro</span><h3>Consegnare</h3><p>Controllare il codice, consegnare il premio e segnarlo come consegnato. <b>Capitolo 4</b></p></div>
+  </div>
+
+  <h3>Cosa serve</h3>
+  <ul class="dots">
+    <li>Una <b>TV con browser internet</b> collegata alla rete del club (smart TV Samsung, Hisense, LG…), oppure un PC o notebook collegato alla TV via HDMI.</li>
+    <li>La <b>connessione internet</b> per la TV. I clienti usano i propri dati mobili (4G/5G) o il Wi-Fi del club.</li>
+    <li>Un <b>account Google @fitup.it</b> per la reception: serve per entrare nel backend, controllare i codici e segnare i premi consegnati.</li>
+    <li>I <b>premi fisici</b> della ruota pronti in reception (vedi elenco nel capitolo 4).</li>
+  </ul>
+
+  <h3>I link del tuo club</h3>
+  <p>Ogni club ha due link e un codice. Li trovi tutti nell'<b>elenco in fondo alla guida</b>.</p>
+  <div class="grid2">
+    <div class="card dark">
+      <span class="tag">Da aprire sulla TV</span>
+      <div class="link">fitup-tv.vercel.app/<span style="color:#fff">CODICE</span></div>
+      <p class="muted" style="margin-top:2mm">Link corto con il codice a 6 cifre del club, da digitare col telecomando. Esempio: <b style="color:#fff">fitup-tv.vercel.app/440140</b>.</p>
+    </div>
+    <div class="card dark">
+      <span class="tag">Il gioco per i clienti</span>
+      <div class="link">fitup-ruota.vercel.app/gioca/<span style="color:#fff">club</span></div>
+      <p class="muted" style="margin-top:2mm">Non serve darlo a voce: il QR sulla TV lo apre già. Si può usare per locandine, WhatsApp o social del club.</p>
+    </div>
+  </div>
+
+  <div class="note"><b>Quando si può giocare</b>La ruota è aperta <b>solo nei giorni dell'evento del club</b> (ora italiana), dalla mezzanotte a fine giornata. Negli altri giorni il cliente vede “Non ancora disponibile” con la data dell'evento. Le ruote di Abbiategrasso e Caresanablot sono sempre aperte finché non viene fissata una data.</div>
+</section>
+
+<!-- 2. TV -->
+<section class="page">
+  <h2><span class="n">2</span>Preparare la TV</h2>
+  <div class="bar"></div>
+  <p class="lead">Da fare <b>qualche giorno prima dell'evento</b>, così c'è tempo per risolvere eventuali problemi. Non servono app, account o permessi sulla TV: basta il browser.</p>
+
+  <div class="grid2" style="grid-template-columns: 1fr 1.15fr; align-items: start;">
+    <ol class="steps">
+      <li><b>Accendi la TV e apri il browser</b>Si trova tra le app della smart TV (“Browser”, “Internet” o “Web”).</li>
+      <li><b>Digita il link corto del club</b>Nella barra degli indirizzi scrivi <span class="mono">fitup-tv.vercel.app/</span> seguito dal codice a 6 cifre del tuo club (elenco in fondo).</li>
+      <li><b>Metti a schermo intero</b>Tasto schermo intero del browser o del telecomando, se c'è. Lo schermo è già pensato in formato 16:9.</li>
+      <li><b>Controlla la schermata</b>Devi vedere la ruota a sinistra e a destra il QR, il <b>codice a 6 cifre</b> e il nome del club in alto (es. “FitUP Seregno”).</li>
+      <li><b>Fai una prova con il telefono</b>Inquadra il QR e gira la ruota (vedi riquadro sotto): deve girare anche sulla TV.</li>
+      <li><b>Lascia la pagina aperta</b>Disattiva salvaschermo, spegnimento automatico e risparmio energetico della TV. La pagina si aggiorna da sola quando cambiano ruota o premi.</li>
+    </ol>
+    <figure>
+      <img src="tv.png" alt="Schermo TV della ruota">
+      <figcaption>Lo schermo TV pronto: ruota, QR da inquadrare e codice a 6 cifre. QR e codice restano sempre visibili e spariscono solo durante il giro e la schermata del risultato.</figcaption>
+    </figure>
+  </div>
+
+  <div class="note"><b>Come fare una prova prima dell'evento</b>Fuori dai giorni dell'evento la ruota è chiusa al pubblico. Per provarla, apri il backend <span class="mono">fitup-ruota.vercel.app/admin</span> con l'account Google @fitup.it <b>sullo stesso telefono</b>, poi inquadra il QR della TV. Comparirà la scritta “Modalità prova staff”: puoi girare quanto vuoi, le giocate non vengono registrate e il codice mostrato è “PROVA”.</div>
+
+</section>
+
+<!-- 3. IL GIOCO -->
+<section class="page">
+  <h2><span class="n">3</span>Come gioca il cliente</h2>
+  <div class="bar"></div>
+  <p class="lead">Il cliente usa il <b>proprio telefono</b> (iPhone o Android, anche non recenti). Non deve installare nulla né registrarsi.</p>
+
+  <div class="phones">
+    <figure><img src="phone.png" alt=""><figcaption><b>1.</b> Il gioco si apre dal QR. Il nome è facoltativo (nome o ID tessera).</figcaption></figure>
+    <figure><img src="phone-tv.png" alt=""><figcaption><b>2.</b> Senza QR: “Guarda sulla TV del club” e si inserisce il codice a 6 cifre.</figcaption></figure>
+    <figure><img src="phone-result.png" alt=""><figcaption><b>3.</b> L'esito con il <b>codice giocata</b> da mostrare in reception.</figcaption></figure>
+  </div>
+
+  <h3 style="margin-top:5mm">I passaggi</h3>
+  <div class="grid2">
+    <ol class="steps">
+      <li><b>Inquadra il QR sulla TV</b>Con la fotocamera del telefono: si apre il gioco già collegato alla TV del club.</li>
+      <li><b>Scrive il nome (facoltativo)</b>Consigliato: aiuta la reception a riconoscere chi ha vinto.</li>
+      <li><b>Gira la ruota</b>Tocca “Gira la ruota” oppure trascina la ruota col dito. Gira insieme sul telefono e sulla TV.</li>
+    </ol>
+    <ol class="steps" start="4" style="counter-reset: s 3;">
+      <li><b>Legge l'esito</b>Premio o penitenza, con il codice giocata (6 caratteri, es. K7P2QX). Lo stesso esito compare sulla TV.</li>
+      <li><b>Viene in reception</b>Con il codice sullo schermo del telefono. Consiglia di fare uno screenshot.</li>
+      <li><b>La TV si libera da sola</b>5 secondi dopo l'esito il telefono viene scollegato e la TV torna pronta per il cliente successivo.</li>
+    </ol>
+  </div>
+
+  <div class="note"><b>Un giocatore alla volta sulla TV</b>Mentre la ruota gira, e per qualche secondo dopo, la TV non accetta altri telefoni: chi prova vede “La TV è occupata, riprova tra qualche secondo”. Organizzate una piccola fila davanti alla TV: ogni giro dura circa 15 secondi tra rotazione ed esito.</div>
+  <div class="note"><b>Se la TV non si collega</b>Il telefono mostra “Ci dispiace, con il televisore individuato non ci è possibile collegarci per sdoppiare lo schermo. Fai qui il tuo giro di Ruota” e il cliente gioca solo sul telefono. L'estrazione e il codice valgono allo stesso modo.</div>
+</section>
+
+<!-- 4. PREMI -->
+<section class="page">
+  <h2><span class="n">4</span>Premi, penitenze e consegna</h2>
+  <div class="bar"></div>
+  <p class="lead">L'esito è estratto dal sistema centrale, non dal telefono, e ogni giocata viene registrata con giorno, ora, nome ed esito. Il codice giocata permette di verificare che la vincita sia vera.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <span class="tag">Premi</span>
+      <ul class="dots">
+        <li>Borsone FitUP · T-Shirt FitUP · Shaker FitUP · Straps FitUP · Asciugamano FitUP</li>
+        <li>Yamamoto: CreatinePRO, Essential Amino, 2 barrette</li>
+        <li>1 settimana gratis · 1 settimana gratis per un amico</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag">Penitenze</span>
+      <ul class="dots">
+        <li>10 squat · 10 affondi · 10 addominali · 10 jumping jack · 5 burpees</li>
+        <li>“Niente scuse: falla subito!”. Si fanno sul momento, nessun codice da controllare.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="small muted" style="margin-top:2mm">L'elenco è quello della ruota standard Promo Ottobre: fa sempre fede quello che compare sulla ruota del club.</p>
+
+  <h3>Consegnare un premio</h3>
+  <div class="grid2" style="grid-template-columns: 1fr 1.2fr; align-items: start;">
+    <ol class="steps">
+      <li><b>Guarda il codice sul telefono</b>Schermata “Hai vinto!” con il premio e il codice giocata.</li>
+      <li><b>Apri il backend</b><span class="mono">fitup-ruota.vercel.app/admin</span> → <b>Report vincite</b>, con l'account Google @fitup.it.</li>
+      <li><b>Cerca il codice</b>Nel campo “Cerca giocatore o codice”. Verifica premio, giorno e club.</li>
+      <li><b>Consegna e spunta</b>Consegna il premio e spunta la casella nella colonna <b>Consegna</b>: restano salvati data, ora e chi l'ha consegnato.</li>
+    </ol>
+    <figure>
+      <img src="report-crop.png" alt="">
+      <figcaption>Report vincite → Elenco giocate. “Solo premi da consegnare” mostra le vincite ancora da ritirare; “Scarica Excel (CSV)” esporta tutto.</figcaption>
+    </figure>
+  </div>
+
+  <div class="note warn"><b>Attenzione</b>Un codice già spuntato come consegnato <b>non va consegnato di nuovo</b>. Se il codice non compare nel report, o è di un altro club o di un altro giorno, non consegnare e avvisa il tuo Area manager. Il codice “PROVA” è solo per i test dello staff e non dà diritto a premi.</div>
+</section>
+
+<!-- 5. FAQ + CHECKLIST -->
+<section class="page">
+  <h2><span class="n">5</span>Problemi e soluzioni</h2>
+  <div class="bar"></div>
+  <table class="faq">
+    <thead><tr><td>Sulla TV</td><td>Cosa fare</td></tr></thead>
+    <tbody>
+      <tr><td>“Questo televisore non è abbastanza fluido per la ruota”</td><td>La TV è troppo lenta (sotto 12 fotogrammi al secondo). Riprova da sola ogni minuto. Prova a chiudere le altre app della TV o usa un PC/notebook collegato via HDMI. Nel frattempo i clienti possono giocare dal telefono.</td></tr>
+      <tr><td>“Schermo non registrato (codice …)”</td><td>Il codice nel link è sbagliato. Controlla le 6 cifre nell'elenco in fondo alla guida.</td></tr>
+      <tr><td>La ruota sembra un po' meno definita</td><td>È normale sulle TV meno potenti: lo schermo alleggerisce la grafica da solo per restare fluido.</td></tr>
+      <tr><td>Pagina bianca o che non si carica</td><td>Controlla la connessione internet della TV, poi ricarica la pagina. Se il browser della TV è molto vecchio, usa un PC via HDMI.</td></tr>
+          <tr><td>La TV mostra “Collegato: [nome] · gira dal telefono”</td><td>Un cliente è collegato ma non ha ancora girato. Dopo 60 secondi la TV torna libera da sola; un nuovo cliente può comunque inquadrare il QR.</td></tr>
+      <tr><td>La pagina della TV si è bloccata o è vecchia</td><td>Ricaricarla (tasto aggiorna del browser). Dal backend → Schermi TV si vede se la TV è in linea e quanto è fluida.</td></tr>
+    </tbody>
+  </table>
+  <table class="faq" style="margin-top:5mm">
+    <thead><tr><td>Sul telefono e in reception</td><td>Cosa fare</td></tr></thead>
+    <tbody>
+      <tr><td>Il cliente vede “Non ancora disponibile”</td><td>Oggi non è il giorno dell'evento del club. La data corretta è scritta sotto il titolo del gioco.</td></tr>
+      <tr><td>“Codice non trovato: controlla le 6 cifre sulla TV”</td><td>Il cliente ha sbagliato il codice. Meglio inquadrare il QR.</td></tr>
+      <tr><td>“La TV è occupata da un altro giocatore”</td><td>Un altro cliente sta girando. Aspettare qualche secondo e riprovare.</td></tr>
+      <tr><td>Il QR apre il gioco ma la TV non gira</td><td>Ricaricare la pagina della TV e far inquadrare di nuovo il QR. In alternativa il cliente gioca sul telefono: l'esito vale uguale.</td></tr>
+      <tr><td>Il cliente ha chiuso la pagina prima di vedere il codice</td><td>Cercare nel Report vincite per nome, ora o club e verificare l'ultima giocata.</td></tr>
+      <tr><td>Nessun suono sul telefono</td><td>Controllare il tasto altoparlante in alto a destra nel gioco e il volume/silenzioso del telefono.</td></tr>
+      <tr><td>Non riesco a entrare nel backend</td><td>Serve un account Google <b>@fitup.it</b>: gli account personali (gmail ecc.) non sono ammessi.</td></tr>
+    </tbody>
+  </table>
+
+</section>
+
+<section class="page">
+  <h2><span class="n">6</span>Checklist</h2>
+  <div class="bar"></div>
+  <p class="lead">Da stampare e tenere in reception.</p>
+  <div class="grid2">
+    <div class="card soft">
+      <span class="tag">Checklist</span><h3>Qualche giorno prima</h3>
+      <ul class="check">
+        <li>Trovato il codice TV e i link del club nell'elenco</li>
+        <li>Link aperto sul browser della TV, a schermo intero</li>
+        <li>Prova staff fatta: la ruota gira su telefono e TV</li>
+        <li>Salvaschermo e spegnimento automatico della TV disattivati</li>
+        <li>Accesso al backend @fitup.it verificato in reception</li>
+      </ul>
+    </div>
+    <div class="card soft">
+      <span class="tag">Checklist</span><h3>Il giorno dell'evento</h3>
+      <ul class="check">
+        <li>TV accesa sulla ruota, pagina ricaricata in mattinata</li>
+        <li>Premi pronti in reception</li>
+        <li>Backend aperto su Report vincite, filtro “Oggi”</li>
+        <li>Staff pronto a spiegare: “Inquadra il QR e gira!”</li>
+        <li>A fine giornata: tutti i premi consegnati spuntati</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note"><b>Novità in prova: “Gira i contatti e Gira la ruota!”</b>Su alcuni schermi può comparire, sopra al QR, “Presenta 5 contatti e Gira la ruota in reception!”. In questo caso il QR apre il regolamento e i giri si fanno in reception: ogni 5 contatti presentati il cliente ha un giro (10 contatti = 2 giri, 15 = 3…). Per ora è attivo solo sullo schermo di prova dell'ufficio: se verrà esteso ai club riceverete indicazioni.</div>
+  <p class="muted">Per dubbi o problemi non risolti: il tuo <b>Area manager</b>.</p>
+</section>
+
+<!-- APPENDICE -->
+<section>
+  <h2><span class="n">A</span>Elenco link dei club</h2>
+  <div class="bar"></div>
+  <p class="lead" style="margin-bottom:4mm"><!--NCLUB--> club. <b>Link TV</b> = da digitare sul browser della TV. <b>Codice</b> = quello che il cliente può inserire nel gioco. <b>Gioco</b> = link per i clienti, <span class="mono">fitup-ruota.vercel.app/gioca/</span> seguito dal nome indicato (lo apre anche il QR).</p>
+  <table class="clubs">
+    <colgroup><col style="width:33mm"><col style="width:44mm"><col style="width:45mm"><col style="width:15mm"><col></colgroup>
+    <thead><tr><th>Club</th><th>Evento</th><th>Link TV</th><th>Codice</th><th>Gioco: …/gioca/</th></tr></thead>
+    <tbody>
+<!--TABELLA-->
+    </tbody>
+  </table>
+</section>
+
+</body>
+</html>

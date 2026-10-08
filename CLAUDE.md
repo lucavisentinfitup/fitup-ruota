@@ -41,6 +41,9 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - [ ] Provare su TV reali (Hisense VIDAA U3.0 e Samsung Tizen) e su telefoni vecchi; test di carico prima del lancio.
 
 ## Diario sessioni (più recente in alto)
+**8/10/2026 – PC ufficio (Windows), guida club**
+- Guida PDF per i club: `docs/Guida-Ruota-FitUP-club.pdf` (10 pagine + elenco link). Sorgente `docs/guida/template.html` + schermate; rigenerare con `node scripts/build-guida.mjs` (usa Edge/Chrome headless, legge `LINK-RUOTE-FITUP.csv`).
+
 **8/10/2026 – PC ufficio (Windows), sera**
 - TV fluidità: avviso "non fluida" solo sotto **12 fps** (`MIN_FPS` in `legacy/tv.ts`, `TV_MIN_FPS` in `lib/tv.ts`); tra 12 e 40 fps la TV gioca con grafica alleggerita (bitmap 900 px, niente layer di motion blur).
 - **Scollegamento automatico** 5 s dopo l'esito: lo fa la TV (DELETE `/api/tv/pair`) e anche il telefono (`Game.tsx`, `legacy/lite.ts`). Il cliente successivo può collegarsi subito.
