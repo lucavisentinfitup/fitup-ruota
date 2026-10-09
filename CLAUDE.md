@@ -37,7 +37,7 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - [ ] Confermare che l'accesso a `/admin` con un account @fitup.it vada a buon fine (il redirect verso Google è verificato, il login completo no).
 - [ ] Ricaricare le pagine TV già aperte nei club (o "ricarica" dal backend → Schermi TV) per avere la correzione dell'8/10.
 - [ ] Passare Vercel a piano **Pro** (uso commerciale).
-- [ ] Seregno: togliere la data di test 2026-10-08 e cancellare le giocate di prova dell'8/10.
+- [ ] Seregno: togliere le date di test 2026-10-08 e 2026-10-09 e cancellare le giocate di prova di quei giorni.
 - [ ] Meccanica referral: decidere se estendere la modalità regolamento a tutti i club e come impedire le giocate libere dal link pubblico (es. giri abilitati solo dalla reception).
 - [ ] Facoltativo: bottone "Salva il risultato" sul telefono (immagine dell'esito con codice, da salvare/condividere).
 - [ ] Abbiategrasso e Caresanablot: aperti su CORE ma assenti dal calendario → ruote "sempre attive"; decidere se disattivarle o dare una data.
@@ -46,6 +46,9 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - [ ] Provare su TV reali (Hisense VIDAA U3.0 e Samsung Tizen) e su telefoni vecchi; test di carico prima del lancio.
 
 ## Diario sessioni (più recente in alto)
+**9/10/2026 – PC ufficio (Windows)**
+- Seregno aperta anche oggi (9/10) per test: aggiunta la data 2026-10-09 all'evento nel DB di produzione.
+
 **8/10/2026 – PC ufficio (Windows), accessi**
 - Backend a due livelli: 5 amministratori con accesso completo, account dei club limitati alla propria ruota (link + giocate/consegne). Email club prese da CORE (85/86, manca Carini). Guida PDF aggiornata di conseguenza.
 
