@@ -74,9 +74,13 @@ h1 { position: absolute; left: 0; top: 190px; margin: 0; font-family: Oswald, 'A
 .has-tagline .paired-note { top: 973px; }
 
 /* giorno dell'evento: schermo pulito, logo + titolo + data centrati in verticale */
-.is-clean .logo { top: 330px; }
-.is-clean #tvname { top: 352px; }
-.is-clean h1 { top: 450px; }
-.is-clean .bar { top: 576px; }
-.is-clean .tv-event { top: 560px; }
-.is-clean .paired-note { top: 680px; }
+/* (senza QR: resta solo il codice per abbinare il telefono) */
+.is-clean .logo { top: 250px; }
+.is-clean #tvname { top: 272px; }
+.is-clean h1 { top: 370px; }
+.is-clean .bar { top: 496px; }
+.is-clean .tv-event { top: 480px; }
+.is-clean .panel { top: 600px; }
+.is-clean .qrbox, .is-clean .qrtext { display: none; }
+.is-clean .codebox { top: 0; }
+.is-clean .paired-note { top: 820px; }

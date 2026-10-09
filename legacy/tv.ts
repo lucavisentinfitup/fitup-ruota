@@ -147,6 +147,9 @@ function applyConfig(c: Config) {
   $("qr-text").innerHTML = rules ? "Il regolamento completo si apre sul tuo telefono." : "Apri la fotocamera del telefono: la ruota gira qui e sul tuo schermo.";
   ($("qr") as HTMLImageElement).src = api + "/qr?v=" + encodeURIComponent(c.wheelVersion) + "&m=" + (c.qrMode || "play");
   $("code").innerHTML = c.tv.code.slice(0, 3) + " " + c.tv.code.slice(3);
+  $("code-text").innerHTML = c.clean
+    ? "Codice per abbinare il telefono:"
+    : "Oppure, dal gioco sul telefono, tocca “Guarda sulla TV” e inserisci il codice:";
 }
 
 // ------------------------------------------------------------------ orologio
@@ -180,8 +183,8 @@ function panel(name: "idle" | "paired" | "spin" | "result") {
   currentPanel = name;
   // QR e codice restano sempre visibili: spariscono solo durante il giro e il risultato.
   // Con un giocatore collegato compare solo un'etichetta sotto al codice.
-  // nel giorno dell'evento (cfg.clean) QR e codice non si mostrano: resta solo l'etichetta del collegato
-  show("panel-idle", !(cfg && cfg.clean) && (name === "idle" || name === "paired"));
+  // nel giorno dell'evento (cfg.clean) il QR non si mostra: resta il codice (nascosto via CSS .is-clean)
+  show("panel-idle", name === "idle" || name === "paired");
   show("paired-note", name === "paired");
   sideClass();
   show("panel-paired", false);

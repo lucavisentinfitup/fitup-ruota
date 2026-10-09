@@ -529,6 +529,9 @@ function applyConfig(c) {
     $("qr-text").innerHTML = rules ? "Il regolamento completo si apre sul tuo telefono." : "Apri la fotocamera del telefono: la ruota gira qui e sul tuo schermo.";
     $("qr").src = api + "/qr?v=" + encodeURIComponent(c.wheelVersion) + "&m=" + (c.qrMode || "play");
     $("code").innerHTML = c.tv.code.slice(0, 3) + " " + c.tv.code.slice(3);
+    $("code-text").innerHTML = c.clean
+        ? "Codice per abbinare il telefono:"
+        : "Oppure, dal gioco sul telefono, tocca “Guarda sulla TV” e inserisci il codice:";
 }
 function syncClock(cb) {
     var best = Infinity;
@@ -557,7 +560,7 @@ function panel(name) {
     if (name === "paired" && currentPanel !== "paired")
         pairedShownAt = Date.now();
     currentPanel = name;
-    show("panel-idle", !(cfg && cfg.clean) && (name === "idle" || name === "paired"));
+    show("panel-idle", name === "idle" || name === "paired");
     show("paired-note", name === "paired");
     sideClass();
     show("panel-paired", false);

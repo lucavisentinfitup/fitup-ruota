@@ -48,7 +48,7 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 ## Diario sessioni (più recente in alto)
 **9/10/2026 – PC ufficio (Windows)**
 - Seregno aperta anche oggi (9/10) per test: aggiunta la data 2026-10-09 all'evento nel DB di produzione.
-- **Schermo TV pulito nel giorno dell'evento** (`tvCleanToday` in `lib/event.ts`, `cfg.clean` in `legacy/tv.ts`, classe `is-clean` in `tv.css`): solo ruota, logo, "Gira la ruota" e la data di oggi; niente QR né codice. Resta l'etichetta "Collegato: …" e, durante giro e risultato, i pannelli di sempre. A mezzanotte la TV cambia da sola (campo `clean` nell'heartbeat). Non si applica alle ruote senza calendario né agli schermi in modalità regolamento.
+- **Schermo TV pulito nel giorno dell'evento** (`tvCleanToday` in `lib/event.ts`, `cfg.clean` in `legacy/tv.ts`, classe `is-clean` in `tv.css`): solo ruota, logo, "Gira la ruota", la data di oggi e il codice a 6 cifre per abbinare il telefono ("Codice per abbinare il telefono"); niente QR. Resta l'etichetta "Collegato: …" e, durante giro e risultato, i pannelli di sempre. A mezzanotte la TV cambia da sola (campo `clean` nell'heartbeat). Non si applica alle ruote senza calendario né agli schermi in modalità regolamento.
 - **Abbinamento senza codice:** "Guarda sulla TV del club" chiede `/api/tv/club?wheel=<id>` (TV accesa associata alla ruota, la più recente) e si collega subito; se non c'è, si apre il pannello codice come prima (`Game.tsx`, `legacy/lite.ts`).
 - Da decidere: nel giorno dell'evento il QR non è più sulla TV, quindi i clienti aprono il gioco dal link/locandina o gioca lo staff dalla reception. La guida PDF va aggiornata di conseguenza.
 
