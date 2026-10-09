@@ -18,6 +18,19 @@ export function eventText(event: WheelEvent | null | undefined) {
   return `${event.type} · ${event.dates.map(formatEventDay).join(", ")}`;
 }
 
+/**
+ * Schermo TV "pulito" nel giorno dell'evento: solo ruota, titolo e data di oggi (niente QR né codice).
+ * Le ruote senza calendario (sempre aperte) e gli schermi in modalità regolamento restano come prima.
+ */
+export function tvCleanToday(event: WheelEvent | null | undefined, qrMode: "play" | "rules", now: Date = new Date()) {
+  return !!event && qrMode === "play" && event.dates.includes(romeDay(now));
+}
+
+/** "Compleanno · venerdì 9 ottobre": solo la giornata di oggi. */
+export function eventTextToday(event: WheelEvent, now: Date = new Date()) {
+  return `${event.type} · ${formatEventDay(romeDay(now))}`;
+}
+
 /** Messaggio per il giocatore quando la ruota non è aperta oggi. */
 export function closedMessage(event: WheelEvent, now: Date = new Date()) {
   const today = romeDay(now);

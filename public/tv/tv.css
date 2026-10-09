@@ -63,7 +63,7 @@ h1 { position: absolute; left: 0; top: 190px; margin: 0; font-family: Oswald, 'A
   color: #ffb4b6; border-radius: 14px; font-size: 30px; text-align: center; z-index: 20; }
 
 /* etichetta "giocatore collegato" sotto QR e codice (il QR resta visibile) */
-.paired-note { position: absolute; left: 0; top: 548px; padding: 12px 22px; border-radius: 40px; font-size: 28px; color: #fff;
+.paired-note { position: absolute; left: 0; top: 928px; padding: 12px 22px; border-radius: 40px; font-size: 28px; color: #fff;
   background: rgba(148,196,36,0.14); border: 2px solid rgba(148,196,36,0.6); white-space: nowrap; max-width: 770px; overflow: hidden; }
 .paired-note b { color: #94C424; font-weight: 600; }
 .paired-note .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #94C424; margin-right: 12px; vertical-align: 1px; }
@@ -71,3 +71,12 @@ h1 { position: absolute; left: 0; top: 190px; margin: 0; font-family: Oswald, 'A
 /* modalità regolamento: frase sotto la data dell'evento, sopra al QR */
 .tv-tagline { position: absolute; left: 0; top: 352px; font-family: Poppins, Arial, sans-serif; font-size: 34px; font-weight: 600; color: #fff; white-space: nowrap; }
 .has-tagline .panel { top: 425px; }
+.has-tagline .paired-note { top: 973px; }
+
+/* giorno dell'evento: schermo pulito, logo + titolo + data centrati in verticale */
+.is-clean .logo { top: 330px; }
+.is-clean #tvname { top: 352px; }
+.is-clean h1 { top: 450px; }
+.is-clean .bar { top: 576px; }
+.is-clean .tv-event { top: 560px; }
+.is-clean .paired-note { top: 680px; }

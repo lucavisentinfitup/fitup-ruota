@@ -15,6 +15,8 @@ interface Config {
   wheel: PublicWheel;
   wheelVersion: string;
   eventText: string;
+  /** giorno dell'evento: schermo pulito, solo ruota + titolo + data (niente QR né codice) */
+  clean?: boolean;
   realtime: "ably" | "poll";
   /** "rules": il QR apre il regolamento (le giocate si fanno in reception) */
   qrMode: "play" | "rules";
@@ -140,7 +142,7 @@ function applyConfig(c: Config) {
   var rules = c.qrMode === "rules";
   $("tagline").innerHTML = rules ? escapeHtml(c.tagline || "") : "";
   show("tagline", rules && !!c.tagline);
-  $("side").className = rules ? "has-tagline" : "";
+  sideClass();
   $("qr-title").innerHTML = rules ? "Inquadra il QR e scopri come giocare" : "Inquadra il QR e gioca sulla TV";
   $("qr-text").innerHTML = rules ? "Il regolamento completo si apre sul tuo telefono." : "Apri la fotocamera del telefono: la ruota gira qui e sul tuo schermo.";
   ($("qr") as HTMLImageElement).src = api + "/qr?v=" + encodeURIComponent(c.wheelVersion) + "&m=" + (c.qrMode || "play");
@@ -178,11 +180,19 @@ function panel(name: "idle" | "paired" | "spin" | "result") {
   currentPanel = name;
   // QR e codice restano sempre visibili: spariscono solo durante il giro e il risultato.
   // Con un giocatore collegato compare solo un'etichetta sotto al codice.
-  show("panel-idle", name === "idle" || name === "paired");
+  // nel giorno dell'evento (cfg.clean) QR e codice non si mostrano: resta solo l'etichetta del collegato
+  show("panel-idle", !(cfg && cfg.clean) && (name === "idle" || name === "paired"));
   show("paired-note", name === "paired");
+  sideClass();
   show("panel-paired", false);
   show("panel-spin", name === "spin");
   show("panel-result", name === "result");
+}
+function sideClass() {
+  var c = cfg && cfg.qrMode === "rules" ? "has-tagline" : "";
+  // schermo pulito: titolo e data centrati, solo quando non c'è un giro o un risultato da mostrare
+  if (cfg && cfg.clean && (currentPanel === "idle" || currentPanel === "paired")) c += " is-clean";
+  $("side").className = c;
 }
 function playerLabel(n: string | null) {
   return n ? escapeHtml(n) : "te!";
@@ -354,7 +364,7 @@ function connectRealtime() {
 function hello() {
   var screen = window.innerWidth + "x" + window.innerHeight + "@" + (window.devicePixelRatio || 1);
   xhr("POST", api + "/hello", { bootFps: bootFps, fps: fpsAvg, screen: screen }, function (err, d) {
-    if (!err && d && cfg && d.wheelVersion && d.wheelVersion !== cfg.wheelVersion && W.phase === "idle") reloadConfig();
+    if (!err && d && cfg && W.phase === "idle" && ((d.wheelVersion && d.wheelVersion !== cfg.wheelVersion) || (typeof d.clean === "boolean" && d.clean !== !!cfg.clean))) reloadConfig();
   });
 }
 

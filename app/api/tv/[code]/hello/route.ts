@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { db, getDefaultWheel, getWheelCached } from "@/lib/db";
 import { normalizeCode } from "@/lib/tv";
+import { tvCleanToday } from "@/lib/event";
 
 export const dynamic = "force-dynamic";
 
@@ -21,5 +22,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ code: s
     screen: typeof body.screen === "string" ? body.screen.slice(0, 40) : null,
   });
   const wheel = (tv.wheelId && (await getWheelCached(tv.wheelId))) || (await getDefaultWheel());
-  return NextResponse.json({ now: Date.now(), wheelVersion: wheel?.updatedAt ?? null }, { headers: { "cache-control": "no-store" } });
+  // `clean` cambia a mezzanotte: la TV ricarica la configurazione e passa da sola allo schermo del giorno evento
+  const clean = !!wheel && tvCleanToday(wheel.event, tv.qrMode === "rules" ? "rules" : "play");
+  return NextResponse.json({ now: Date.now(), wheelVersion: wheel?.updatedAt ?? null, clean }, { headers: { "cache-control": "no-store" } });
 }

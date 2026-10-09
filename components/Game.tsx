@@ -56,6 +56,14 @@ export default function Game({ wheel: initialWheel, remaining: remainingInit, cl
   }, [tv.status]);
 
   // TV non collegabile: si chiude il pannello e si "richiama" il bottone per girare qui
+  // "Guarda sulla TV del club": se la TV del club è accesa ci si collega subito, senza codice;
+  // altrimenti si apre il pannello con QR/codice come prima
+  const openTv = async () => {
+    const d = await fetch(`/api/tv/club?wheel=${encodeURIComponent(wheel.id)}`).then((r) => r.json()).catch(() => null);
+    if (d?.code) tv.connect(d.code);
+    else setTvOpen(true);
+  };
+
   const playHere = () => {
     tv.clearFailure();
     tv.clearLost();
@@ -229,7 +237,7 @@ export default function Game({ wheel: initialWheel, remaining: remainingInit, cl
           </div>
         ) : (
           !out && (
-            <button className="btn btn-ghost btn-tv" onClick={() => setTvOpen(true)} disabled={spinning}>
+            <button className="btn btn-ghost btn-tv" onClick={openTv} disabled={spinning}>
               <svg viewBox="0 0 24 24" aria-hidden><path d="M21 3H3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h7v2H8v2h8v-2h-2v-2h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 13H3V5h18v11z" /></svg>
               Guarda sulla TV del club
             </button>

@@ -427,7 +427,13 @@ function boot() {
   };
   $("spin").onclick = spin;
   $("wheel").onclick = spin;
-  $("tvbtn").onclick = openTvSheet;
+  // TV del club accesa: collegamento diretto senza codice; altrimenti il pannello come prima
+  $("tvbtn").onclick = function () {
+    xhr("GET", "/api/tv/club?wheel=" + encodeURIComponent(wheel.id) + "&_=" + Date.now(), null, function (err, d) {
+      if (!err && d && d.code) connectTv(d.code);
+      else openTvSheet();
+    });
+  };
   $("tvoff").onclick = function () {
     if (tv) xhr("DELETE", "/api/tv/pair?code=" + tv.code + "&session=" + tv.session, null, function () {});
     tv = null;
