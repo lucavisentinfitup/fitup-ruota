@@ -46,6 +46,9 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - [ ] Provare su TV reali (Hisense VIDAA U3.0 e Samsung Tizen) e su telefoni vecchi; test di carico prima del lancio.
 
 ## Diario sessioni (più recente in alto)
+**17/10/2026 – Mac mini (casa)**
+- **Login Google bloccato da `fitup-tv.vercel.app`** (errore 400 `redirect_uri_mismatch`): Auth.js usa l'host della richiesta, ma nel client OAuth è autorizzato solo `https://fitup-ruota.vercel.app/api/auth/callback/google`. Correzione in `next.config.ts`: su `fitup-tv.vercel.app` le rotte `/login`, `/admin/*` e `/api/auth/*` rimandano a `fitup-ruota.vercel.app`. Link corti e pagine TV invariati. Il backend si usa solo da `fitup-ruota.vercel.app`.
+
 **9/10/2026 – PC ufficio (Windows)**
 - Seregno aperta anche oggi (9/10) per test: aggiunta la data 2026-10-09 all'evento nel DB di produzione.
 - **Schermo TV pulito nel giorno dell'evento** (`tvCleanToday` in `lib/event.ts`, `cfg.clean` in `legacy/tv.ts`, classe `is-clean` in `tv.css`): solo ruota, logo, "Gira la ruota", la data di oggi e il codice a 6 cifre per abbinare il telefono ("Codice per abbinare il telefono"); niente QR. Resta l'etichetta "Collegato: …" e, durante giro e risultato, i pannelli di sempre. A mezzanotte la TV cambia da sola (campo `clean` nell'heartbeat). Non si applica alle ruote senza calendario né agli schermi in modalità regolamento.
