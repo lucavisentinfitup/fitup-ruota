@@ -47,6 +47,10 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - [ ] Provare su TV reali (Hisense VIDAA U3.0 e Samsung Tizen) e su telefoni vecchi; test di carico prima del lancio.
 
 ## Diario sessioni (più recente in alto)
+**19/10/2026 – PC ufficio (Windows)**
+- Guida PDF rifatta per il nuovo flusso (TV pulita con codice, gioco dal dispositivo della reception o link WhatsApp, "Guarda sulla TV del club", pannello club, consegna premi): `docs/Guida-Ruota-FitUP-club.pdf`, sorgente `docs/guida/template.html` + immagini `v2-*.png`. Bozza mail per palestre@fitup.it in `docs/mail-palestre.html`.
+- Pannello club: testo sotto "Link del gioco" aggiornato (niente più riferimento al QR della TV).
+
 **17/10/2026 – Mac mini (casa)**
 - **Login Google bloccato da `fitup-tv.vercel.app`** (errore 400 `redirect_uri_mismatch`): Auth.js usa l'host della richiesta, ma nel client OAuth è autorizzato solo `https://fitup-ruota.vercel.app/api/auth/callback/google`. Correzione in `next.config.ts`: su `fitup-tv.vercel.app` le rotte `/login`, `/admin/*` e `/api/auth/*` rimandano a `fitup-ruota.vercel.app`. Link corti e pagine TV invariati. Il backend si usa solo da `fitup-ruota.vercel.app`.
 
@@ -54,7 +58,7 @@ Web app "Ruota della Fortuna FitUP" per la **Promo Ottobre 2026**: i clienti dei
 - Seregno aperta anche oggi (9/10) per test: aggiunta la data 2026-10-09 all'evento nel DB di produzione.
 - **Schermo TV pulito nel giorno dell'evento** (`tvCleanToday` in `lib/event.ts`, `cfg.clean` in `legacy/tv.ts`, classe `is-clean` in `tv.css`): solo ruota, logo, "Gira la ruota", la data di oggi e il codice a 6 cifre per abbinare il telefono ("Codice per abbinare il telefono"); niente QR. Resta l'etichetta "Collegato: …" e, durante giro e risultato, i pannelli di sempre. A mezzanotte la TV cambia da sola (campo `clean` nell'heartbeat). Non si applica alle ruote senza calendario né agli schermi in modalità regolamento.
 - **Abbinamento senza codice:** "Guarda sulla TV del club" chiede `/api/tv/club?wheel=<id>` (TV accesa associata alla ruota, la più recente) e si collega subito; se non c'è, si apre il pannello codice come prima (`Game.tsx`, `legacy/lite.ts`).
-- Da decidere: nel giorno dell'evento il QR non è più sulla TV, quindi i clienti aprono il gioco dal link/locandina o gioca lo staff dalla reception. La guida PDF va aggiornata di conseguenza.
+- Nel giorno dell'evento il QR non è sulla TV: si gioca dal dispositivo della reception o dal link del gioco mandato al cliente (guida del 19/10).
 
 **8/10/2026 – PC ufficio (Windows), accessi**
 - Backend a due livelli: 5 amministratori con accesso completo, account dei club limitati alla propria ruota (link + giocate/consegne). Email club prese da CORE (85/86, manca Carini). Guida PDF aggiornata di conseguenza.

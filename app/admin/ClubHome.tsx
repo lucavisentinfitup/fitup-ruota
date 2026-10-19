@@ -52,7 +52,7 @@ export default function ClubHome({ wheel, active, eventLabel, openToday, origin,
         <h3>{wheel.name}</h3>
 
         <LinkRow label="Link del gioco (da dare ai clienti)" url={game}
-          hint="Lo apre anche il QR che compare sulla TV. Puoi usarlo per WhatsApp, social o locandine." />
+          hint="Aprilo sul telefono, tablet o PC della reception, oppure mandalo ai clienti su WhatsApp, social o locandine." />
 
         {tvs.length === 0 && <p className="small muted" style={{ margin: 0 }}>Nessuno schermo TV associato alla ruota: chiedi all&apos;amministratore.</p>}
         {tvs.map((t) => (

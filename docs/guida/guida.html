@@ -87,222 +87,214 @@
   .check li { padding: 1.3mm 0 1.3mm 8mm; position: relative; border-bottom: .25mm dashed var(--line); }
   .check li::before { content: ""; position: absolute; left: 0; top: 1.9mm; width: 4mm; height: 4mm; border: .45mm solid var(--black); border-radius: 1mm; }
 </style>
+<style>
+  .linkbox { display: grid; grid-template-columns: 34mm 1fr; gap: 0; border: .3mm solid var(--line); border-radius: 3mm; overflow: hidden; margin: 2mm 0 5mm; }
+  .linkbox > div { padding: 3mm 4mm; border-bottom: .3mm solid var(--line); }
+  .linkbox > div:nth-last-child(-n+2) { border-bottom: 0; }
+  .linkbox .k { background: var(--black); color: #fff; font: 600 9pt Oswald, sans-serif; text-transform: uppercase; letter-spacing: .04em; display: flex; align-items: center; }
+  .linkbox .v .mono { font-size: 10.5pt; font-weight: 600; color: var(--black); }
+  .linkbox .v p { margin: .8mm 0 0; color: var(--muted); font-size: 8.4pt; }
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 2mm 0 5mm; }
+  .flow .card { padding: 3.5mm; }
+  .flow .num { font: 700 20pt Oswald, sans-serif; color: var(--green); line-height: 1; }
+  .flow h3 { margin: 1.5mm 0 1mm; font-size: 11pt; }
+  .flow p { font-size: 8.4pt; margin: 0; color: var(--muted); }
+  .shot { width: 100%; display: block; border-radius: 2.5mm; border: .3mm solid #2a2a2a; }
+  .tvgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .phones2 { display: grid; grid-template-columns: repeat(3, 40mm); justify-content: space-between; margin: 0 6mm; gap: 4mm; }
+  .phones2 img { width: 100%; border-radius: 4mm; border: .8mm solid #222; display: block; }
+  .tip { font-size: 8.4pt; color: var(--muted); }
+</style>
 </head>
 <body>
+
 
 <!-- COPERTINA -->
 <section class="cover page">
   <img class="logo" src="../../public/brand/fitup-logo.png" alt="FitUP">
-  <div class="kicker">Promo Ottobre 2026 · Guida operativa</div>
+  <div class="kicker">Promo Ottobre 2026 · Guida passo passo</div>
   <h1>Ruota della<br>Fortuna <span>FitUP</span></h1>
-  <p class="sub">Tutto quello che serve allo staff del club: preparare la TV, far giocare i clienti, consegnare i premi.</p>
-  <img class="shot" src="tv.png" alt="">
+  <p class="sub">Come accedere al pannello del club, accendere la TV, far girare la ruota e consegnare i premi. Anche se non l'hai mai usata.</p>
+  <img class="shot-cover" src="v2-tv-idle.png" alt="" style="position:absolute;left:18mm;right:18mm;bottom:34mm;width:calc(100% - 36mm);border-radius:4mm;border:.6mm solid #2b2f22">
   <div class="foot">Per il personale dei club FitUP · uso interno</div>
 </section>
 
 <!-- 1. IN BREVE -->
 <section class="page">
-  <h2><span class="n">1</span>La ruota in breve</h2>
+  <h2><span class="n">1</span>Tutto in una pagina</h2>
   <div class="bar"></div>
-  <p class="lead">Durante l'evento del club (Open Day o Compleanno) i clienti girano la Ruota della Fortuna FitUP dal proprio telefono. La ruota gira anche sulla TV del club e si ferma su un <b>premio</b> o su una <b>penitenza</b>. Chi vince mostra un codice in reception e ritira il premio.</p>
+  <p class="lead">Nel giorno dell'evento del club la TV mostra la ruota, la data e un <b>codice a 6 cifre</b>. La giocata si fa da un telefono, tablet o PC: la ruota gira sul dispositivo e, nello stesso momento, anche sulla TV.</p>
 
-  <div class="grid3">
-    <div class="card soft"><span class="tag">Prima dell'evento</span><h3>Preparare la TV</h3><p>Aprire il link dello schermo sul browser della TV e fare una prova. <b>Capitolo 2</b></p></div>
-    <div class="card soft"><span class="tag">Il giorno dell'evento</span><h3>Far giocare</h3><p>Il cliente inquadra il QR sulla TV e gira la ruota dal telefono. <b>Capitolo 3</b></p></div>
-    <div class="card soft"><span class="tag">Subito dopo il giro</span><h3>Consegnare</h3><p>Controllare il codice, consegnare il premio e segnarlo come consegnato. <b>Capitolo 4</b></p></div>
+  <h3>I 3 link da conoscere</h3>
+  <div class="linkbox">
+    <div class="k">Pannello del club</div>
+    <div class="v"><span class="mono">fitup-ruota.vercel.app/admin</span><p>Si entra con l'account Google del club (es. seregno@fitup.it). Qui trovi i link del tuo club, lo storico delle giocate e la consegna dei premi.</p></div>
+    <div class="k">Gioco</div>
+    <div class="v"><span class="mono">fitup-ruota.vercel.app/gioca/<i>nome-club</i></span><p>Si apre sul dispositivo con cui si gioca (reception o telefono del cliente). Es. fitup-ruota.vercel.app/gioca/seregno</p></div>
+    <div class="k">TV</div>
+    <div class="v"><span class="mono">fitup-tv.vercel.app/<i>codice</i></span><p>Si digita una volta nel browser della TV. Es. fitup-tv.vercel.app/440140. Il codice del tuo club è nel pannello e nell'elenco in fondo.</p></div>
+  </div>
+
+  <h3>I 4 passi</h3>
+  <div class="flow">
+    <div class="card soft"><div class="num">1</div><h3>Entra nel pannello</h3><p>Con l'account Google del club. Pagina 3.</p></div>
+    <div class="card soft"><div class="num">2</div><h3>Accendi la TV</h3><p>Apri il link TV nel browser, a schermo intero. Pagina 4.</p></div>
+    <div class="card soft"><div class="num">3</div><h3>Gioca</h3><p>Apri il gioco, collega la TV, gira la ruota. Pagina 5.</p></div>
+    <div class="card soft"><div class="num">4</div><h3>Consegna</h3><p>Controlla il codice e spunta il premio. Pagina 6.</p></div>
   </div>
 
   <h3>Cosa serve</h3>
   <ul class="dots">
-    <li>Una <b>TV con browser internet</b> collegata alla rete del club (smart TV Samsung, Hisense, LG…). <b>Se la TV non ha internet</b>, va bene anche un <b>tablet</b> o un <b>PC/notebook</b> esposto in reception, oppure collegato alla TV con il cavo HDMI.</li>
-    <li>La <b>connessione internet</b> per la TV. I clienti usano i propri dati mobili (4G/5G) o il Wi-Fi del club.</li>
-    <li>L'<b>account Google del club</b> (es. seregno@fitup.it) per la reception: serve per entrare nel backend, vedere i link del club, controllare i codici e segnare i premi consegnati.</li>
-    <li>I <b>premi fisici</b> della ruota pronti in reception (vedi elenco nel capitolo 4).</li>
+    <li>Una <b>TV con browser internet</b> (smart TV). Se la TV non ha internet: un <b>tablet</b> o un <b>PC/notebook</b> esposto in reception o collegato alla TV con cavo HDMI.</li>
+    <li>Un <b>telefono, tablet o PC in reception</b> per far girare la ruota (oppure il telefono del cliente).</li>
+    <li>L'<b>account Google del club</b> (nome-club@fitup.it) e la sua password.</li>
+    <li>I <b>premi</b> pronti in reception.</li>
   </ul>
-
-  <h3>I link del tuo club</h3>
-  <p>Ogni club ha due link e un codice. Li trovi nel backend (sezione <b>La mia ruota</b>) e nell'<b>elenco in fondo alla guida</b>.</p>
-  <div class="grid2">
-    <div class="card dark">
-      <span class="tag">Da aprire sulla TV</span>
-      <div class="link">fitup-tv.vercel.app/<span style="color:#fff">CODICE</span></div>
-      <p class="muted" style="margin-top:2mm">Link corto con il codice a 6 cifre del club, da digitare col telecomando. Esempio: <b style="color:#fff">fitup-tv.vercel.app/440140</b>.</p>
-    </div>
-    <div class="card dark">
-      <span class="tag">Il gioco per i clienti</span>
-      <div class="link">fitup-ruota.vercel.app/gioca/<span style="color:#fff">club</span></div>
-      <p class="muted" style="margin-top:2mm">Non serve darlo a voce: il QR sulla TV lo apre già. Si può usare per locandine, WhatsApp o social del club.</p>
-    </div>
-  </div>
-
-  <div class="note"><b>Quando si può giocare</b>La ruota è aperta <b>solo nei giorni dell'evento del club</b> (ora italiana), dalla mezzanotte a fine giornata. Negli altri giorni il cliente vede “Non ancora disponibile” con la data dell'evento. Le ruote di Abbiategrasso e Caresanablot sono sempre aperte finché non viene fissata una data.</div>
+  <div class="note"><b>Quando si gioca</b>Solo nel <b>giorno dell'evento del club</b> (Open Day o Compleanno), tutto il giorno. Negli altri giorni il gioco mostra “Non ancora disponibile”. Lo staff collegato al pannello può però provarlo in “Modalità prova staff”: le giocate di prova non vengono registrate.</div>
 </section>
 
-<!-- 2. TV -->
+<!-- 2. PANNELLO -->
 <section class="page">
-  <h2><span class="n">2</span>Preparare la TV</h2>
+  <h2><span class="n">2</span>Entra nel pannello del club</h2>
   <div class="bar"></div>
-  <p class="lead">Da fare <b>qualche giorno prima dell'evento</b>, così c'è tempo per risolvere eventuali problemi. Non servono app, account o permessi sulla TV: basta il browser.</p>
-
-  <div class="grid2" style="grid-template-columns: 1fr 1.15fr; align-items: start;">
+  <p class="lead">Il pannello è la “base” del club: ci trovi i link giusti già pronti e lo storico delle giocate. Va aperto sul dispositivo della reception.</p>
+  <div class="grid2" style="grid-template-columns: 1fr 1.25fr; align-items: start;">
     <ol class="steps">
-      <li><b>Accendi la TV e apri il browser</b>Si trova tra le app della smart TV (“Browser”, “Internet” o “Web”). TV senza internet? Usa un tablet o un PC (vedi riquadro sotto).</li>
-      <li><b>Digita il link corto del club</b>Nella barra degli indirizzi scrivi <span class="mono">fitup-tv.vercel.app/</span> seguito dal codice a 6 cifre del tuo club (elenco in fondo).</li>
-      <li><b>Metti a schermo intero</b>Tasto schermo intero del browser o del telecomando, se c'è. Lo schermo è già pensato in formato 16:9.</li>
-      <li><b>Controlla la schermata</b>Devi vedere la ruota a sinistra e a destra il QR, il <b>codice a 6 cifre</b> e il nome del club in alto (es. “FitUP Seregno”).</li>
-      <li><b>Fai una prova con il telefono</b>Inquadra il QR e gira la ruota (vedi riquadro sotto): deve girare anche sulla TV.</li>
-      <li><b>Lascia la pagina aperta</b>Disattiva salvaschermo, spegnimento automatico e risparmio energetico della TV. La pagina si aggiorna da sola quando cambiano ruota o premi.</li>
+      <li><b>Apri il browser</b>Chrome, Edge o Safari, sul PC o sul telefono della reception.</li>
+      <li><b>Vai su fitup-ruota.vercel.app/admin</b>Scrivilo nella barra degli indirizzi in alto e premi Invio.</li>
+      <li><b>Tocca “Accedi con Google”</b>Scegli l'<b>account del club</b> (es. seregno@fitup.it). Se non compare, tocca “Usa un altro account” e inseriscilo con la sua password.</li>
+      <li><b>Sei dentro: “La mia ruota”</b>Vedi la ruota del club, la data dell'evento e i link: <b>Link del gioco</b> e <b>Link da aprire sulla TV</b>, ognuno con i tasti <b>Copia</b> e <b>Apri</b>.</li>
+      <li><b>Salvalo nei preferiti</b>Così la prossima volta basta un clic.</li>
     </ol>
-    <figure>
-      <img src="tv.png" alt="Schermo TV della ruota">
-      <figcaption>Lo schermo TV pronto: ruota, QR da inquadrare e codice a 6 cifre. QR e codice restano sempre visibili e spariscono solo durante il giro e la schermata del risultato.</figcaption>
-    </figure>
-  </div>
-
-  <div class="note"><b>TV senza internet: tablet o PC</b>Se la TV non è smart o non ha internet, apri lo stesso link su un <b>tablet</b> (Chrome o Safari, in orizzontale) o su un <b>PC/notebook</b> (Chrome o Edge, tasto F11 per lo schermo intero). Puoi esporlo così in reception oppure collegare il PC alla TV con un cavo HDMI. Tieni il dispositivo in carica e disattiva il blocco schermo automatico. Funziona tutto come sulla TV: QR, codice e ruota sincronizzata.</div>
-
-  <div class="note"><b>Come fare una prova prima dell'evento</b>Fuori dai giorni dell'evento la ruota è chiusa al pubblico. Per provarla, apri il backend <span class="mono">fitup-ruota.vercel.app/admin</span> con l'account Google del club <b>sullo stesso telefono</b>, poi inquadra il QR della TV. Comparirà la scritta “Modalità prova staff”: puoi girare quanto vuoi, le giocate non vengono registrate e il codice mostrato è “PROVA”.</div>
-
-</section>
-
-<!-- 3. IL GIOCO -->
-<section class="page">
-  <h2><span class="n">3</span>Come gioca il cliente</h2>
-  <div class="bar"></div>
-  <p class="lead">Il cliente usa il <b>proprio telefono</b> (iPhone o Android, anche non recenti). Non deve installare nulla né registrarsi.</p>
-
-  <div class="phones">
-    <figure><img src="phone.png" alt=""><figcaption><b>1.</b> Il gioco si apre dal QR. Il nome è facoltativo (nome o ID tessera).</figcaption></figure>
-    <figure><img src="phone-tv.png" alt=""><figcaption><b>2.</b> Senza QR: “Guarda sulla TV del club” e si inserisce il codice a 6 cifre.</figcaption></figure>
-    <figure><img src="phone-result.png" alt=""><figcaption><b>3.</b> L'esito con il <b>codice giocata</b> da mostrare in reception.</figcaption></figure>
-  </div>
-
-  <h3 style="margin-top:5mm">I passaggi</h3>
-  <div class="grid2">
-    <ol class="steps">
-      <li><b>Inquadra il QR sulla TV</b>Con la fotocamera del telefono: si apre il gioco già collegato alla TV del club.</li>
-      <li><b>Scrive il nome (facoltativo)</b>Consigliato: aiuta la reception a riconoscere chi ha vinto.</li>
-      <li><b>Gira la ruota</b>Tocca “Gira la ruota” oppure trascina la ruota col dito. Gira insieme sul telefono e sulla TV.</li>
-    </ol>
-    <ol class="steps" start="4" style="counter-reset: s 3;">
-      <li><b>Legge l'esito</b>Premio o penitenza, con il codice giocata (6 caratteri, es. K7P2QX). Lo stesso esito compare sulla TV.</li>
-      <li><b>Viene in reception</b>Con il codice sullo schermo del telefono. Consiglia di fare uno screenshot.</li>
-      <li><b>La TV si libera da sola</b>5 secondi dopo l'esito il telefono viene scollegato e la TV torna pronta per il cliente successivo.</li>
-    </ol>
-  </div>
-
-  <div class="note"><b>Un giocatore alla volta sulla TV</b>Mentre la ruota gira, e per qualche secondo dopo, la TV non accetta altri telefoni: chi prova vede “La TV è occupata, riprova tra qualche secondo”. Organizzate una piccola fila davanti alla TV: ogni giro dura circa 15 secondi tra rotazione ed esito.</div>
-  <div class="note"><b>Se la TV non si collega</b>Il telefono mostra “Ci dispiace, con il televisore individuato non ci è possibile collegarci per sdoppiare lo schermo. Fai qui il tuo giro di Ruota” e il cliente gioca solo sul telefono. L'estrazione e il codice valgono allo stesso modo.</div>
-</section>
-
-<!-- 4. PREMI -->
-<section class="page">
-  <h2><span class="n">4</span>Premi, penitenze e consegna</h2>
-  <div class="bar"></div>
-  <p class="lead">L'esito è estratto dal sistema centrale, non dal telefono, e ogni giocata viene registrata con giorno, ora, nome ed esito. Il codice giocata permette di verificare che la vincita sia vera.</p>
-
-  <div class="grid2">
-    <div class="card">
-      <span class="tag">Premi</span>
-      <ul class="dots">
-        <li>Borsone FitUP · T-Shirt FitUP · Shaker FitUP · Straps FitUP · Asciugamano FitUP</li>
-        <li>Yamamoto: CreatinePRO, Essential Amino, 2 barrette</li>
-        <li>1 settimana gratis · 1 settimana gratis per un amico</li>
-      </ul>
-    </div>
-    <div class="card">
-      <span class="tag">Penitenze</span>
-      <ul class="dots">
-        <li>10 squat · 10 affondi · 10 addominali · 10 jumping jack · 5 burpees</li>
-        <li>“Niente scuse: falla subito!”. Si fanno sul momento, nessun codice da controllare.</li>
-      </ul>
+    <div>
+      <figure><img class="shot" src="v2-login.png" alt=""><figcaption>La pagina di accesso.</figcaption></figure>
+      <figure style="margin-top:4mm"><img class="shot" src="v2-panel.png" alt=""><figcaption>“La mia ruota”: i link del club già pronti, con Copia e Apri.</figcaption></figure>
     </div>
   </div>
-  <p class="small muted" style="margin-top:2mm">L'elenco è quello della ruota standard Promo Ottobre: fa sempre fede quello che compare sulla ruota del club.</p>
+  <div class="note warn"><b>“Accesso negato”?</b>Hai usato un account sbagliato (personale o di un collega). Entrano solo gli account dei club e quelli della sede. Esci, oppure apri una <b>finestra in incognito</b> (Ctrl+Shift+N su PC), e accedi con l'account del club.</div>
+</section>
 
-  <h3>Consegnare un premio</h3>
+<!-- 3. TV -->
+<section class="page">
+  <h2><span class="n">3</span>Accendi la TV</h2>
+  <div class="bar"></div>
+  <p class="lead">Si fa una volta sola, la mattina dell'evento (meglio ancora il giorno prima, per provare). Non servono app né permessi.</p>
   <div class="grid2" style="grid-template-columns: 1fr 1.2fr; align-items: start;">
     <ol class="steps">
-      <li><b>Guarda il codice sul telefono</b>Schermata “Hai vinto!” con il premio e il codice giocata.</li>
-      <li><b>Apri il backend</b><span class="mono">fitup-ruota.vercel.app/admin</span> → <b>Giocate e premi</b>, con l'account Google del club.</li>
-      <li><b>Cerca il codice</b>Nel campo “Cerca giocatore o codice”. Verifica premio, giorno e club.</li>
-      <li><b>Consegna e spunta</b>Consegna il premio e spunta la casella nella colonna <b>Consegna</b>: restano salvati data, ora e chi l'ha consegnato.</li>
+      <li><b>Accendi la TV e apri il browser</b>Tra le app della smart TV: “Browser”, “Internet” o “Web”.</li>
+      <li><b>Digita il link TV del club</b>Col telecomando scrivi <span class="mono">fitup-tv.vercel.app/</span> e il codice a 6 cifre del club (es. <span class="mono">fitup-tv.vercel.app/440140</span>).</li>
+      <li><b>Metti a schermo intero</b>Con il tasto del browser o del telecomando.</li>
+      <li><b>Controlla</b>Nel giorno dell'evento vedi: la ruota che gira piano, “Gira la ruota”, la data e il <b>codice per abbinare il telefono</b>. Negli altri giorni c'è anche un QR: è normale.</li>
+      <li><b>Lascia la pagina aperta</b>Disattiva salvaschermo e spegnimento automatico della TV. La pagina si aggiorna da sola.</li>
     </ol>
-    <figure>
-      <img src="report-crop.png" alt="">
-      <figcaption>Giocate e premi → Elenco giocate. “Solo premi da consegnare” mostra le vincite ancora da ritirare; “Scarica Excel (CSV)” esporta tutto.</figcaption>
-    </figure>
+    <div>
+      <figure><img class="shot" src="v2-tv-idle.png" alt=""><figcaption>La TV pronta nel giorno dell'evento: ruota, data e codice. Niente QR.</figcaption></figure>
+      <div class="note" style="margin-top:4mm"><b>TV senza internet o troppo lenta?</b>Apri lo stesso link su un <b>tablet</b> (in orizzontale) o su un <b>PC</b> (Chrome o Edge, tasto <b>F11</b> per lo schermo intero) e mettilo in reception, oppure collega il PC alla TV con un cavo <b>HDMI</b>. Tienilo in carica.</div>
+    </div>
   </div>
-
-  <div class="note warn"><b>Attenzione</b>Un codice già spuntato come consegnato <b>non va consegnato di nuovo</b>. Se il codice non compare nel report, o è di un altro club o di un altro giorno, non consegnare e avvisa il tuo Area manager. Il codice “PROVA” è solo per i test dello staff e non dà diritto a premi.</div>
 </section>
 
-<!-- 5. FAQ + CHECKLIST -->
+<!-- 4. GIOCA -->
 <section class="page">
-  <h2><span class="n">5</span>Problemi e soluzioni</h2>
+  <h2><span class="n">4</span>Gioca e collega la TV</h2>
+  <div class="bar"></div>
+  <p class="lead">Si gioca dal dispositivo della reception (aperto dal pannello con <b>Apri</b>) oppure dal telefono del cliente, a cui mandi il <b>Link del gioco</b> su WhatsApp (tasto <b>Copia</b> nel pannello).</p>
+  <div class="phones2">
+    <figure><img src="v2-phone-game.png" alt=""><figcaption><b>1.</b> Il gioco aperto. Nome facoltativo.</figcaption></figure>
+    <figure><img src="v2-phone-linked.png" alt=""><figcaption><b>2.</b> “Guarda sulla TV del club” → in basso compare “Sulla TV: FitUP …”.</figcaption></figure>
+    <figure><img src="v2-phone-code.png" alt=""><figcaption><b>3.</b> Se chiede il codice: le 6 cifre che vedi sulla TV, poi “Collega”.</figcaption></figure>
+  </div>
+  <div class="grid2" style="margin-top:4mm; grid-template-columns: 1.05fr 1fr;">
+    <ol class="steps">
+      <li><b>Apri il gioco</b>Dal pannello (“Link del gioco” → <b>Apri</b>) o dal link ricevuto su WhatsApp.</li>
+      <li><b>Scrivi il nome</b>Facoltativo, ma aiuta a ritrovare la vincita.</li>
+      <li><b>Tocca “Guarda sulla TV del club”</b>Il dispositivo si collega da solo alla TV del club. Se te lo chiede, scrivi il codice a 6 cifre della TV.</li>
+      <li><b>Tocca “Gira la ruota”</b>La ruota gira insieme sul dispositivo e sulla TV, con lo stesso esito.</li>
+      <li><b>Per il giro successivo</b>5 secondi dopo l'esito la TV si libera da sola: tocca di nuovo “Guarda sulla TV del club” e gira.</li>
+    </ol>
+    <div class="tvgrid" style="grid-template-columns:1fr; gap:3mm">
+      <figure><img class="shot" src="v2-tv-spin.png" alt=""><figcaption>Sulla TV durante il giro.</figcaption></figure>
+      <figure><img class="shot" src="v2-tv-result.png" alt=""><figcaption>Sulla TV con l'esito e il codice giocata.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PREMI -->
+<section class="page">
+  <h2><span class="n">5</span>Consegna i premi</h2>
+  <div class="bar"></div>
+  <p class="lead">Ogni giocata ha un <b>codice</b> di 6 caratteri (es. GYLQS4) e viene registrata. Con il codice controlli che la vincita sia vera e segni la consegna.</p>
+  <div class="grid2" style="grid-template-columns: 40mm 1fr; align-items: start; gap: 8mm">
+    <figure><img src="v2-phone-result.png" alt="" style="width:100%;border-radius:4mm;border:.8mm solid #222"><figcaption>L'esito con il codice giocata.</figcaption></figure>
+    <ol class="steps">
+      <li><b>Leggi il codice</b>Sulla schermata “Hai vinto!” del dispositivo (e sulla TV). Se gioca il cliente dal suo telefono, consiglia uno screenshot.</li>
+      <li><b>Apri “Giocate e premi”</b>Nel pannello, in alto. Tocca <b>Oggi</b> per vedere solo le giocate di oggi.</li>
+      <li><b>Cerca il codice</b>Nel campo “Cerca giocatore o codice”. Controlla premio, giorno e ora.</li>
+      <li><b>Consegna e spunta</b>Dai il premio e spunta la casella <b>Consegna</b>: restano salvati data, ora e chi l'ha consegnato.</li>
+      <li><b>A fine giornata</b>“Solo premi da consegnare” mostra cosa manca. “Scarica Excel (CSV)” esporta l'elenco.</li>
+    </ol>
+  </div>
+  <figure style="margin-top:4mm"><img class="shot" src="v2-report.png" alt=""><figcaption>“Giocate e premi”: lo storico del club, con la colonna Consegna.</figcaption></figure>
+  <div class="note warn"><b>Attenzione</b>Un codice già spuntato <b>non si consegna di nuovo</b>. Le <b>penitenze</b> si fanno sul momento, senza premio. Il codice “PROVA” è solo un test dello staff.</div>
+</section>
+
+<!-- 6. INTOPPI -->
+<section class="page">
+  <h2><span class="n">6</span>Primi intoppi: cosa fare</h2>
   <div class="bar"></div>
   <table class="faq">
-    <thead><tr><td>Sulla TV</td><td>Cosa fare</td></tr></thead>
+    <thead><tr><td>Cosa succede</td><td>Soluzione pratica</td></tr></thead>
     <tbody>
-      <tr><td>“Questo televisore non è abbastanza fluido per la ruota”</td><td>La TV è troppo lenta (sotto 12 fotogrammi al secondo). Riprova da sola ogni minuto. Prova a chiudere le altre app della TV o usa un PC/notebook collegato via HDMI. Nel frattempo i clienti possono giocare dal telefono.</td></tr>
-      <tr><td>“Schermo non registrato (codice …)”</td><td>Il codice nel link è sbagliato. Controlla le 6 cifre nell'elenco in fondo alla guida.</td></tr>
-      <tr><td>La ruota sembra un po' meno definita</td><td>È normale sulle TV meno potenti: lo schermo alleggerisce la grafica da solo per restare fluido.</td></tr>
-      <tr><td>Pagina bianca o che non si carica</td><td>Controlla la connessione internet della TV, poi ricarica la pagina. Se il browser della TV è molto vecchio, usa un PC via HDMI.</td></tr>
-          <tr><td>La TV mostra “Collegato: [nome] · gira dal telefono”</td><td>Un cliente è collegato ma non ha ancora girato. Dopo 60 secondi la TV torna libera da sola; un nuovo cliente può comunque inquadrare il QR.</td></tr>
-      <tr><td>La pagina della TV si è bloccata o è vecchia</td><td>Ricaricarla (tasto aggiorna del browser). Se il problema resta, avvisa la sede.</td></tr>
+      <tr><td>Il pannello dice “Accesso negato”</td><td>Account sbagliato. Apri una finestra in incognito e accedi con l'account del club (nome-club@fitup.it).</td></tr>
+      <tr><td>Non ricordo la password dell'account del club</td><td>Chiedila al tuo Area manager. Nel frattempo si può giocare lo stesso: il link del gioco funziona anche senza pannello (lo trovi nell'elenco in fondo).</td></tr>
+      <tr><td>Il gioco dice “Non ancora disponibile”</td><td>Oggi non è il giorno dell'evento del club: la data giusta è scritta sotto il titolo.</td></tr>
+      <tr><td>“Guarda sulla TV del club” non si collega e chiede il codice</td><td>Scrivi le 6 cifre che vedi sulla TV e tocca “Collega”. Se la TV non mostra il codice, ricarica la pagina della TV.</td></tr>
+      <tr><td>“Codice non trovato”</td><td>Controlla le 6 cifre sulla TV (non il codice giocata del premio).</td></tr>
+      <tr><td>“La TV è occupata da un altro giocatore”</td><td>Un giro è appena finito o in corso: aspetta 5-10 secondi e riprova.</td></tr>
+      <tr><td>“Ci dispiace, con il televisore individuato non ci è possibile collegarci…”</td><td>La TV è spenta, senza internet o la pagina è chiusa. Tocca “Gira qui”: si gioca sul dispositivo, l'esito vale uguale. Poi ricarica la pagina della TV.</td></tr>
+      <tr><td>La TV dice “non è abbastanza fluido”</td><td>TV troppo lenta. Chiudi le altre app della TV o usa un tablet/PC (vedi pagina 4). Si può comunque giocare sul dispositivo.</td></tr>
+      <tr><td>Pagina della TV bianca o bloccata</td><td>Controlla internet sulla TV e ricarica la pagina (tasto aggiorna). Se il browser è molto vecchio, usa un PC con HDMI.</td></tr>
+      <tr><td>Il cliente ha chiuso il gioco senza vedere il codice</td><td>In “Giocate e premi” cerca per nome o guarda l'ultima giocata all'ora indicata.</td></tr>
+      <tr><td>Non si sente il suono</td><td>Tasto altoparlante in alto a destra nel gioco e volume del dispositivo.</td></tr>
     </tbody>
   </table>
-  <table class="faq" style="margin-top:5mm">
-    <thead><tr><td>Sul telefono e in reception</td><td>Cosa fare</td></tr></thead>
-    <tbody>
-      <tr><td>Il cliente vede “Non ancora disponibile”</td><td>Oggi non è il giorno dell'evento del club. La data corretta è scritta sotto il titolo del gioco.</td></tr>
-      <tr><td>“Codice non trovato: controlla le 6 cifre sulla TV”</td><td>Il cliente ha sbagliato il codice. Meglio inquadrare il QR.</td></tr>
-      <tr><td>“La TV è occupata da un altro giocatore”</td><td>Un altro cliente sta girando. Aspettare qualche secondo e riprovare.</td></tr>
-      <tr><td>Il QR apre il gioco ma la TV non gira</td><td>Ricaricare la pagina della TV e far inquadrare di nuovo il QR. In alternativa il cliente gioca sul telefono: l'esito vale uguale.</td></tr>
-      <tr><td>Il cliente ha chiuso la pagina prima di vedere il codice</td><td>Cercare in Giocate e premi per nome o ora e verificare l'ultima giocata.</td></tr>
-      <tr><td>Nessun suono sul telefono</td><td>Controllare il tasto altoparlante in alto a destra nel gioco e il volume/silenzioso del telefono.</td></tr>
-      <tr><td>Non riesco a entrare nel backend</td><td>Serve l'<b>account Google del club</b> (es. seregno@fitup.it): gli altri account, compresi quelli personali, non sono abilitati.</td></tr>
-    </tbody>
-  </table>
-
+  <p class="muted" style="margin-top:5mm">Per tutto il resto: il tuo <b>Area manager</b>.</p>
 </section>
 
+<!-- 7. CHECKLIST -->
 <section class="page">
-  <h2><span class="n">6</span>Checklist</h2>
+  <h2><span class="n">7</span>Checklist</h2>
   <div class="bar"></div>
   <p class="lead">Da stampare e tenere in reception.</p>
   <div class="grid2">
     <div class="card soft">
-      <span class="tag">Checklist</span><h3>Qualche giorno prima</h3>
+      <span class="tag">Checklist</span><h3>Prima dell'evento</h3>
       <ul class="check">
-        <li>Trovato il codice TV e i link del club nell'elenco</li>
-        <li>Link aperto sul browser della TV, a schermo intero</li>
-        <li>Prova staff fatta: la ruota gira su telefono e TV</li>
+        <li>Accesso al pannello con l'account del club provato</li>
+        <li>Link TV aperto sulla TV, a schermo intero</li>
         <li>Salvaschermo e spegnimento automatico della TV disattivati</li>
-        <li>Accesso al backend con l'account del club verificato in reception</li>
+        <li>Prova staff fatta: la ruota gira su dispositivo e TV</li>
+        <li>Link del gioco salvato o pronto da mandare su WhatsApp</li>
       </ul>
     </div>
     <div class="card soft">
       <span class="tag">Checklist</span><h3>Il giorno dell'evento</h3>
       <ul class="check">
-        <li>TV accesa sulla ruota, pagina ricaricata in mattinata</li>
+        <li>TV accesa sulla ruota, pagina ricaricata la mattina</li>
+        <li>Dispositivo della reception con gioco e pannello aperti</li>
         <li>Premi pronti in reception</li>
-        <li>Backend aperto su Giocate e premi, filtro “Oggi”</li>
-        <li>Staff pronto a spiegare: “Inquadra il QR e gira!”</li>
+        <li>“Giocate e premi” aperto con filtro “Oggi”</li>
         <li>A fine giornata: tutti i premi consegnati spuntati</li>
       </ul>
     </div>
   </div>
-
-  <div class="note"><b>Novità in prova: “Gira i contatti e Gira la ruota!”</b>Su alcuni schermi può comparire, sopra al QR, “Presenta 5 contatti e Gira la ruota in reception!”. In questo caso il QR apre il regolamento e i giri si fanno in reception: ogni 5 contatti presentati il cliente ha un giro (10 contatti = 2 giri, 15 = 3…). Per ora è attivo solo sullo schermo di prova dell'ufficio: se verrà esteso ai club riceverete indicazioni.</div>
-  <p class="muted">Per dubbi o problemi non risolti: il tuo <b>Area manager</b>.</p>
 </section>
 
 <!-- APPENDICE -->
 <section>
-  <h2><span class="n">A</span>Elenco link dei club</h2>
+  <h2><span class="n">A</span>I link di ogni club</h2>
   <div class="bar"></div>
-  <p class="lead" style="margin-bottom:4mm">86 club. <b>Link TV</b> = da digitare sul browser della TV. <b>Codice</b> = quello che il cliente può inserire nel gioco. <b>Gioco</b> = link per i clienti, <span class="mono">fitup-ruota.vercel.app/gioca/</span> seguito dal nome indicato (lo apre anche il QR).</p>
+  <p class="lead" style="margin-bottom:4mm">86 club. <b>Link TV</b> = da digitare nel browser della TV. <b>Codice</b> = da inserire nel gioco se lo chiede. <b>Gioco</b> = <span class="mono">fitup-ruota.vercel.app/gioca/</span> seguito dal nome indicato. Gli stessi link sono nel pannello di ogni club.</p>
   <table class="clubs">
     <colgroup><col style="width:33mm"><col style="width:44mm"><col style="width:45mm"><col style="width:15mm"><col></colgroup>
     <thead><tr><th>Club</th><th>Evento</th><th>Link TV</th><th>Codice</th><th>Gioco: …/gioca/</th></tr></thead>
